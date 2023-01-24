@@ -12,6 +12,7 @@ export function createInputs(inputFixture: inputI[]) {
         labelValue: input.labelValue,
         typeInput: input.typeInput,
         inputClasses: input.inputClasses,
+        inputName: input.inputName
       })
     );
   }, '');
