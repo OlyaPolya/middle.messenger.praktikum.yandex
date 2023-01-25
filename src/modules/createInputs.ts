@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import input from '../components/Input';
-import { IInput } from '../utils/SignIn/types';
+import { IInput } from '../utils/SignInPage/types';
 
 export function createInputs(inputFixture: IInput[]) {
   const inputTemplate = Handlebars.compile(input);

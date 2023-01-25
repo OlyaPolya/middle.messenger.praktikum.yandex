@@ -5,12 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="assets/img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <title>Chat</title>
 </head>
 <body>
-  <main class='main' id='root'>
-
-  </main>
+  <main class='main' id='root'></main>
+  <div class="modal">
+    <p class="modal__title">Окно выбора страницы</p>
+    <ul>
+      <li class="modal__list-item list-item__signin">Авторизация </li>
+      <li class="modal__list-item list-item__signup">Регистрация</li>
+      <li class="modal__list-item list-item__chat">Список чатов и лента переписки</li>
+      <li class="modal__list-item list-item__profile">Профиль пользователя</li>
+      <li class="modal__list-item list-item__change-profile">Настройки пользователя</li>
+      <li class="modal__list-item list-item__404">404</li>
+      <li class="modal__list-item list-item__500">5**</li>
+    </ul>
+  </div>
   <script type="module" src="index.ts"></script>
 </body>
 </html>

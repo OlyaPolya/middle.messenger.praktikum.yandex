@@ -13,11 +13,6 @@ export function createSignUpPage() {
     buttons: buttonsTemplate,
   });
 
-  const section = document.querySelector('.main');
-
-  if (section) {
-    section.innerHTML = pageLayout;
-  }
-
+  return pageLayout;
 }
 

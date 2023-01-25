@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import button from '../components/Button';
-import { IButton } from '../utils/SignIn/types';
+import { IButton } from '../utils/SignInPage/types';
 
 export function createButtons(buttonsFixture: IButton[]) {
   const buttonTemplate = Handlebars.compile(button);

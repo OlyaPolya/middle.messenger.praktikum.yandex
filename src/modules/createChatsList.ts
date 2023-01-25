@@ -24,11 +24,5 @@ export function createChatsList(usersSenders: IChatsList[]) {
     );
   }, '');
 
-  const section = document.querySelector('.main');
-
-  if (section) {
-    section.innerHTML = chatList;
-  }
-
   return chatList;
 }
