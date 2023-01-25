@@ -1,7 +1,6 @@
 import './styles.scss';
 import { createSignInPage } from './utils/SignInPage/index';
 import { createSignUpPage } from './utils/SignUpPage/index';
-import { createFeed } from './utils/ChatPage/ChatFeed/index';
 import { usersSenders } from './utils/ChatPage/APITamplate/ChatsListUsers';
 import { createChatPage } from './utils/ChatPage/index';
 import { userMessages } from './utils/ChatPage/APITamplate/FeedMessage';
@@ -9,13 +8,10 @@ import { createProfilePage } from './utils/ProfilePage/index';
 import { buttonsProfile, fieldsProfile, fieldsPasswordProfile, buttonsSaveProfile } from './utils/ProfilePage/fixtures';
 import { createErrorPage } from './utils/ServerErrorPage/index';
 
-//createSignInPage();
-//createSignUpPage();
-//createChatPage(usersSenders, userMessages);
-//createField(fieldsFixture)
-//createProfilePage(fieldsPasswordProfile, buttonsSaveProfile);
-
 const section = document.querySelector('.main');
+if (section) {
+  section.innerHTML = createSignInPage();
+}
 
 function createPage(classList: string) {
   let page = '';
@@ -24,6 +20,18 @@ function createPage(classList: string) {
     page = createSignInPage();
   } else if (classList.includes('list-item__signup')) {
     page = createSignUpPage();
+  } else if (classList.includes('list-item__chat')) {
+    page = createChatPage(usersSenders, userMessages);
+  } else if (classList.includes('list-item__profile')) {
+    page = createProfilePage(fieldsProfile, buttonsProfile, 'readonly');
+  } else if (classList.includes('list-item__change-password')) {
+    page = createProfilePage(fieldsPasswordProfile, buttonsSaveProfile);
+  } else if (classList.includes('list-item__change-profile')) {
+    page = createProfilePage(fieldsProfile, buttonsSaveProfile);
+  } else if (classList.includes('list-item__404')) {
+    page = createErrorPage('404', 'Не туда попали');
+  } else if (classList.includes('list-item__500')) {
+    page = createErrorPage('500', 'Мы уже фиксим');
   }
 
   if (section) {
