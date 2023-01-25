@@ -1,9 +1,9 @@
 import Handlebars from 'handlebars';
 import { chatPreview } from '../components/Chat/ChatPreview';
-import { ChatsListI } from '../utils/ChatPage/types';
+import { IChatsList } from '../utils/ChatPage/types';
 import { getTime } from '../modules/getTime';
 
-export function createChatsList(usersSenders: ChatsListI[]) {
+export function createChatsList(usersSenders: IChatsList[]) {
   const chatListTemplate = Handlebars.compile(chatPreview);
   const chatList = usersSenders.reduce((concat, chatPreview) => {
     const isUserSender = chatPreview.sender.client_id === 'sk-1376265f-86df-4c49-a0c3-a4816df41af9' ? 'Вы: ' : null;

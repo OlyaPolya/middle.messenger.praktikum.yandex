@@ -1,67 +1,55 @@
 import Handlebars from 'handlebars';
-import { chatPreview } from '../../../components/Chat/ChatPreview';
-import { ChatsListI } from '../../../utils/ChatPage/types';
-import { userMessages } from '../../../utils/ChatPage/ChatFeed/TemporaryFeedMessageTemplate';
 import { chatFeed } from '../../../utils/ChatPage/ChatFeed/ChatFeedTemplate';
 import { getHour } from '../../../modules/getHour';
-import { chatSenderMessage,  chatRecipientMessage } from '../../../components/Chat/ChatMessage';
+import { chatMessage } from '../../../components/Chat/ChatMessage';
+import { IUserMessages } from './types';
+import { sendFieldTemplate } from '../ChatFeed/SendBlockTemplate';
 
 const CURRENT_USER_TEMP_ID = '86a0caef-41ec-49ac-814b-b27da2cea267';
+// .message-date__delivered::before {
+    // content: url('../../media/examples/fire.png');
+// }
 
-export function getMessages (/*insert template*/) {
-  const messageReceiveTemplate = Handlebars.compile(chatRecipientMessage);
-  const messageSenderTemplate = Handlebars.compile(chatSenderMessage);
-  const isDelivered = '&#10003;'
+export function getMessages(userMessages: IUserMessages) {
+  const messageTemplate = Handlebars.compile(chatMessage);
 
   const chatList = userMessages.messages.reduce((concat, message) => {
     const time = getHour(message.timestamp);
-    const userMessageType = message.message.text.length > 0 ? message.message.text : message.message.media;
-    if (message.sender.id === CURRENT_USER_TEMP_ID) {
-      return (
-        concat +
-        messageReceiveTemplate({
-          message: userMessageType,
-          isDelivered: isDelivered,
-          date: time,
+    const messageType = message.message.text.length > 0 ? message.message.text : `<img src="${message.message.media}" alt="image from user">`;
+    const isUserRecipientOrSender = message.sender.id === CURRENT_USER_TEMP_ID ? 'message-content__text_recipient' : 'message-content__text_sender';
+    const chowCheckboxReading = message.sender.id === CURRENT_USER_TEMP_ID ? 'message-date__delivered' : 'message-date__not-delivered';
 
-        })
-      );
-     }
-  
     return (
       concat +
-      messageSenderTemplate({
-        message: userMessageType,
+      messageTemplate({
+        UserRecipientOrSender: isUserRecipientOrSender,
+        message: messageType,
+        isDelivered: chowCheckboxReading,
         date: time,
       })
     );
+
   }, '');
-
-  return chatList;
-  
-}
-
-export function createFeed(/*insert template*/) {
-  const chatFeedTemplate = Handlebars.compile(chatFeed);
-
-  const chatList = userMessages.messages.reduce((concat, message) => {
-    const messageList = getMessages()
-    return (
-      concat +
-      chatFeedTemplate({
-        messages: messageList,
-        messageSendBlock: '<kjr',
-      })
-    );
-  }, '');
-
-  const section = document.querySelector('.main');
-
-  if (section) {
-    section.innerHTML = chatList;
-  }
 
   return chatList;
 }
 
-//./assets/img/user.png
+function getMessageSendBlock() {
+  const sendBlockTemplate = Handlebars.compile(sendFieldTemplate);
+  const sendBlock = sendBlockTemplate({});
+
+  return sendBlock;
+}
+
+export function createFeed(userMessages: IUserMessages) {
+  const chatTemplate = Handlebars.compile(chatFeed);
+  const messageList = getMessages(userMessages);
+  const sendMessageBlock = getMessageSendBlock();
+
+  const chatFeedTemplate = chatTemplate({
+    messages: messageList,
+    messageSendBlock: sendMessageBlock,
+  });
+
+  return chatFeedTemplate;
+}

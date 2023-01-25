@@ -1,6 +1,6 @@
-import { buttonI, inputI } from './types';
+import { IButton, IInput } from './types';
 
-export const buttonFixture: buttonI[] = [
+export const buttonFixture: IButton[] = [
   {
     button: 'signin',
     classes: 'signin-form__submit button  button__blue',
@@ -13,7 +13,7 @@ export const buttonFixture: buttonI[] = [
   },
 ];
 
-export const inputFixture: inputI[] = [
+export const inputFixture: IInput[] = [
   {
     inputName: 'login',
     labelClasses: 'label signin-form__label-input',

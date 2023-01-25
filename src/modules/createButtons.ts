@@ -1,8 +1,8 @@
 import Handlebars from 'handlebars';
 import button from '../components/Button';
-import { buttonI } from '../utils/SignIn/types';
+import { IButton } from '../utils/SignIn/types';
 
-export function createButtons(buttonsFixture: buttonI[]) {
+export function createButtons(buttonsFixture: IButton[]) {
   const buttonTemplate = Handlebars.compile(button);
   const buttons = buttonsFixture.reduce((concat, button) => {
     return (

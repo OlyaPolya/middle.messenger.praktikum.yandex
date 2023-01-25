@@ -65,7 +65,7 @@ export const userMessages = {
         client_id: 'skm-5f2836a8ca468',
         type: 'picture',
         text: '',
-        media: 'https:/example.com/users/avatar.png',
+        media: 'https://cdn-icons-png.flaticon.com/256/7603/7603200.png',
         thumbnail: '',
         file_name: 'image',
         file_size: 3,

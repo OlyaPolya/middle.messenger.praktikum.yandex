@@ -3,7 +3,6 @@ export const chatFeed = `
     <div class="chat-feed__header">
       <div class="chat-feed__user-info">
         <div class="chat-feed__user-image chat__user-image">
-          <img src="" alt="user image">
         </div>
         <span class="chat-feed__username chat__username">Менеджер Василий</span>
       </div>
@@ -16,3 +15,4 @@ export const chatFeed = `
     <div class="chat-feed__send-message-block">{{{messageSendBlock}}}</div>
    </div>
 `;
+

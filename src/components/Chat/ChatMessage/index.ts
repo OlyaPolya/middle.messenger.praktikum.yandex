@@ -1,22 +1,10 @@
-export const chatRecipientMessage = `
+export const chatMessage = `
 <div class="message-content">
-  <div class="message-content__text message-content__text_recipient">
+  <div class="message-content__text {{{UserRecipientOrSender}}}">
     <span>{{{message}}}</span>
   </div>
   <div class="message-content__date message-date">
-    <span>{{{isDelivered}}}</span>
-    <span>{{{date}}}</span>
-  </div>
-</div>
-`;
-
-export const chatSenderMessage = `
-<div class="message-content">
-  <div class="message-content__text message-content__text_sender">
-    <span>{{{message}}}</span>
-  </div>
-  <div class="message-content__date message-date">
-    <span>{{{date}}}</span>
+    <span class="{{{isDelivered}}}">{{{date}}}</span>
   </div>
 </div>
 `;

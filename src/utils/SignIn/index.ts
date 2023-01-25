@@ -12,12 +12,8 @@ export function createSignInPage() {
     inputs: inputsTemplate,
     buttons: buttonsTemplate,
   });
-
-  const section = document.querySelector('.main');
-
-  if (section) {
-    section.innerHTML = pageLayout;
-  }
+ 
+  return pageLayout;
 
 }
 

@@ -4,10 +4,12 @@ export interface IButton {
   value: string;
 }
 
-export interface IInput {
+export interface IField {
   inputName: string;
-  labelClasses: string;
-  labelValue: string;
-  typeInput: string;
+  fieldClasses: string;
+  fieldNameValue: string;
   inputClasses: string;
+  userData: string;
+  type: string;
 }
+

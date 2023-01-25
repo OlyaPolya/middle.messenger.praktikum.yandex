@@ -1,8 +1,8 @@
 import Handlebars from 'handlebars';
 import input from '../components/Input';
-import { inputI } from '../utils/SignIn/types';
+import { IInput } from '../utils/SignIn/types';
 
-export function createInputs(inputFixture: inputI[]) {
+export function createInputs(inputFixture: IInput[]) {
   const inputTemplate = Handlebars.compile(input);
   const inputs = inputFixture.reduce((concat, input) => {
     return (
@@ -12,7 +12,7 @@ export function createInputs(inputFixture: inputI[]) {
         labelValue: input.labelValue,
         typeInput: input.typeInput,
         inputClasses: input.inputClasses,
-        inputName: input.inputName
+        inputName: input.inputName,
       })
     );
   }, '');

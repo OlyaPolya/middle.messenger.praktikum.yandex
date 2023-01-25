@@ -1,4 +1,4 @@
-export interface ChatsListI {
+export interface IChatsList {
   timestamp: number;
   sender: {
     id: string;
