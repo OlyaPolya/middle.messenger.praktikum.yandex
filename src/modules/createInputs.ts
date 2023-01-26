@@ -13,6 +13,7 @@ export function createInputs(inputFixture: IInput[]) {
         typeInput: input.typeInput,
         inputClasses: input.inputClasses,
         inputName: input.inputName,
+        inputValue: input.inputValue,
       })
     );
   }, '');

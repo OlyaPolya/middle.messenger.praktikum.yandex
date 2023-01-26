@@ -7,7 +7,6 @@ const USER_ID_TMP = '5f283618af2c4';
 
 export function createPreviewChatPanel(users: IChatUsersList[]): string {
   const panelTemplate = Handlebars.compile(chatPreview);
-  console.log('vdv');
   
   const panel = users.reduce((concat, user) => {
     const isUserSend = user.message.client_id === USER_ID_TMP? '<span class="user-info__user-sender">Вы: </span>' : null;

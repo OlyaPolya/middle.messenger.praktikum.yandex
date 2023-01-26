@@ -1,0 +1,46 @@
+$font: Inter;
+$black-color: #1e1e1e;
+$grey-color: #999999;
+$grey-color-border: #EAEAEA;
+$grey-color-fields: #EFEFEF;
+$blue-color: #3369f3;
+
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 340px;
+  height: 615px;
+  margin-top: 50px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  font-family: $font;
+
+  &__title {
+    padding-top: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.signup-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 40px 30px 30px 30px;
+
+}
+
+.form__inputs-block {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.form__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

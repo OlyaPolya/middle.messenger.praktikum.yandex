@@ -10,4 +10,5 @@ export interface IInput {
   labelValue: string;
   typeInput: string;
   inputClasses: string;
+  inputValue: string;
 }

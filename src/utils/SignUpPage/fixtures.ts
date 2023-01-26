@@ -20,6 +20,7 @@ export const inputFixture: IInput[] = [
     labelValue: 'Почта',
     typeInput: 'email',
     inputClasses: 'input email-input signup-form__email-input',
+    inputValue: 'pochta@yandex.ru',
   },
   {
     inputName: 'login',
@@ -27,6 +28,7 @@ export const inputFixture: IInput[] = [
     labelValue: 'Логин',
     typeInput: 'text',
     inputClasses: 'input login-input signup-form__login-input',
+    inputValue: 'ivanivanov',
   },
   {
     inputName: 'first_name',
@@ -34,6 +36,7 @@ export const inputFixture: IInput[] = [
     labelValue: 'Имя',
     typeInput: 'text',
     inputClasses: 'input username-input signup-form__username-input',
+    inputValue: 'Иван',
   },
   {
     inputName: 'second_name',
@@ -41,6 +44,7 @@ export const inputFixture: IInput[] = [
     labelValue: 'Фамилия',
     typeInput: 'text',
     inputClasses: 'input usersurname-input signup-form__usersurname-input',
+    inputValue: 'Иванов',
   },
   {
     inputName: 'phone',
@@ -48,6 +52,7 @@ export const inputFixture: IInput[] = [
     labelValue: 'Телефон',
     typeInput: 'tel',
     inputClasses: 'input phone-input signup-form__phone-input',
+    inputValue: 'ivanivanov',
   },
   {
     inputName: 'password',
@@ -55,12 +60,14 @@ export const inputFixture: IInput[] = [
     labelValue: 'Пароль',
     typeInput: 'password',
     inputClasses: 'input password-input signup-form__password-input',
+    inputValue: 'ivanivanov',
   },
   {
     inputName: 'password',
-    labelClasses: 'label signup-form__label-input',
+    labelClasses: 'label signup-form__label-input label_red',
     labelValue: 'Пароль (еще раз)',
     typeInput: 'password',
     inputClasses: 'input password-input signup-form__password-input',
+    inputValue: 'ivanivanov',
   },
 ];

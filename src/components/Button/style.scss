@@ -1,0 +1,28 @@
+$font: Inter;
+$blue-color: #3369f3;
+
+.button {
+  font-family: $font;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 14px;
+
+  &__blue{
+    width: 280px;
+    height: 37px;
+    border: none;
+    border-radius: 8px;
+    background-color: $blue-color;
+    color: white;
+  }
+
+  &__clear {
+    border: none;
+    background-color: inherit;
+    color: $blue-color;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

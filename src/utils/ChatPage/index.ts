@@ -5,10 +5,11 @@ import { IChatUsersList } from './LeftPanel/types';
 import { IUserMessages } from './ChatFeed/types';
 import { chatListHeader } from '../../components/Chat/ChatsListHeader/index';
 import { chatPageTemplate } from './ChatPageTemplate';
+import './style.scss';
 
 export function createChatPage(users: IChatUsersList[], messages: IUserMessages) {
   const pageTemplate = Handlebars.compile(chatPageTemplate);
-  const panelLeft = ''.concat(chatListHeader, createPreviewChatPanel(users));
+  const panelLeft = ''.concat(chatListHeader, '<div class="left-panel__chat-preview">', createPreviewChatPanel(users), '</div>');
   const feed = createFeed(messages);
 
   const page = pageTemplate({
@@ -18,3 +19,5 @@ export function createChatPage(users: IChatUsersList[], messages: IUserMessages)
 
   return page;
 }
+
+;

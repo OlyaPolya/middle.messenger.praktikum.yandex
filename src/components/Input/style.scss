@@ -1,0 +1,42 @@
+$font: Inter;
+$blue-color: #3369f3;
+$red-color:#FF2F2F;
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  height: 36px;
+  width: 100%;
+  position: relative;
+
+  &-input__subtitle {
+    font-family: $font;
+    padding-bottom: 8px;
+    font-size: 9px;
+    color: #999999;
+  }
+
+  &_red {
+    .input {
+      color: $red-color;
+    }
+    
+    &::after { 
+      position: absolute;
+      left: 0;
+      bottom: -25px;
+      content: "Пароли не совпадают";
+      color: $red-color;
+      font-size: 8px;
+      
+    }
+  }
+}
+
+.form-input {
+  padding-bottom: 8px;
+  border-style: none;
+  border-bottom: 1px solid $blue-color;
+  font-size: 13px;
+}

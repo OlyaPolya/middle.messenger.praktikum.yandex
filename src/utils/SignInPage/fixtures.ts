@@ -19,13 +19,15 @@ export const inputFixture: IInput[] = [
     labelClasses: 'label signin-form__label-input',
     labelValue: 'Логин',
     typeInput: 'text',
-    inputClasses: 'input login-input signin-form__username-input',
+    inputClasses: 'login-input signin-form__username-input',
+    inputValue: 'ivanivanov',
   },
   {
     inputName: 'password',
     labelClasses: 'label signin-form__label-input',
     labelValue: 'Пароль',
     typeInput: 'password',
-    inputClasses: 'input password-input signin-form__password-input',
+    inputClasses: 'password-input signin-form__password-input',
+    inputValue: 'ivanivanov',
   },
 ];

@@ -1,4 +1,4 @@
-import './styles.scss';
+import './style.scss';
 import { createSignInPage } from './utils/SignInPage/index';
 import { createSignUpPage } from './utils/SignUpPage/index';
 import { usersSenders } from './utils/ChatPage/APITamplate/ChatsListUsers';
@@ -10,7 +10,8 @@ import { createErrorPage } from './utils/ServerErrorPage/index';
 
 const section = document.querySelector('.main');
 if (section) {
-  section.innerHTML = createSignInPage();
+  // section.innerHTML = createSignInPage();
+  section.innerHTML = createChatPage(usersSenders, userMessages);
 }
 
 function createPage(classList: string) {

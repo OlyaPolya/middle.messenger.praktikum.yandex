@@ -3,6 +3,7 @@ import { buttonFixture, inputFixture } from './fixtures';
 import { createButtons } from '../../modules/createButtons';
 import { createInputs } from '../../modules/createInputs';
 import { page } from './pageTemplate';
+import './style.scss'
 
 export function createSignUpPage() {
   const formTemplate = Handlebars.compile(page);
