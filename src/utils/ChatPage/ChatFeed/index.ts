@@ -6,9 +6,6 @@ import { IUserMessages } from './types';
 import { sendFieldTemplate } from '../ChatFeed/SendBlockTemplate';
 
 const CURRENT_USER_TEMP_ID = '86a0caef-41ec-49ac-814b-b27da2cea267';
-// .message-date__delivered::before {
-    // content: url('../../media/examples/fire.png');
-// }
 
 export function getMessages(userMessages: IUserMessages) {
   const messageTemplate = Handlebars.compile(chatMessage);
@@ -16,8 +13,8 @@ export function getMessages(userMessages: IUserMessages) {
   const chatList = userMessages.messages.reduce((concat, message) => {
     const time = getHour(message.timestamp);
     const messageType = message.message.text.length > 0 ? message.message.text : `<img src="${message.message.media}" alt="image from user">`;
-    const isUserRecipientOrSender = message.sender.id === CURRENT_USER_TEMP_ID ? 'message-content__text_recipient' : 'message-content__text_sender';
-    const chowCheckboxReading = message.sender.id === CURRENT_USER_TEMP_ID ? 'message-date__delivered' : 'message-date__not-delivered';
+    const isUserRecipientOrSender = message.sender.id === CURRENT_USER_TEMP_ID ? 'recipient' : 'sender';
+    const chowCheckboxReading = message.sender.id === CURRENT_USER_TEMP_ID ? 'message-date__delivered' : 'message-date__delivered-not';
 
     return (
       concat +

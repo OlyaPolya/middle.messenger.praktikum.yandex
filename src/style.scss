@@ -50,8 +50,9 @@ html {
 .main {
   display: flex;
   flex-direction: row;
-  max-width: 1280px;
-  height: 100vh;
+  justify-content: center;
+  width: 1280px;
+  height: 720px;
   font-family: $font;
 }
 

@@ -3,6 +3,7 @@ import { pageLayout } from './ProfileTemplate';
 import { IField, IButton} from'./types';
 import { field } from '../../components/ProfileField';
 import { createButtons } from '../../modules/createButtons';
+import './style.scss';
 
 export function createFields(fields: IField[], readable?: string) {
   const fieldTemplate = Handlebars.compile(field);

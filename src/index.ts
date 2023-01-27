@@ -11,7 +11,8 @@ import { createErrorPage } from './utils/ServerErrorPage/index';
 const section = document.querySelector('.main');
 if (section) {
   // section.innerHTML = createSignInPage();
-  section.innerHTML = createChatPage(usersSenders, userMessages);
+  section.innerHTML = createProfilePage(fieldsProfile, buttonsProfile, 'readonly');
+  
 }
 
 function createPage(classList: string) {
@@ -37,6 +38,11 @@ function createPage(classList: string) {
 
   if (section) {
     section.innerHTML = page;
+  }
+
+  const activeDialog = document.querySelector('.chat-preview:last-child');
+  if (activeDialog) {
+    activeDialog.classList.add('chat-preview-active');
   }
 }
 

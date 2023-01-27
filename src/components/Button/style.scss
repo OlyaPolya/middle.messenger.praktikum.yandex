@@ -16,10 +16,18 @@ $blue-color: #3369f3;
     color: white;
   }
 
-  &__clear {
+  &__clear, &__red {    
     border: none;
     background-color: inherit;
     color: $blue-color;
+  }
+
+   &__clear{    
+    color: $blue-color;
+  }
+
+  &__red {    
+    color: #FF0000;
   }
 
   &:hover {

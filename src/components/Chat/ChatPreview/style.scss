@@ -5,13 +5,34 @@ $grey-color-fields: #efefef;
 $blue-color: #3369f3;
 $grey-color-background: #fbfbfb;
 $white-color: #FFFFFF;
+$blue-color-hover: #E4EDFD;
 
 .chat-preview {
+  position: relative;
   display: flex;
   align-items: center;
-  margin: 0 10px;
+  width: 100%;
+  padding: 0 10px;
   height: 70px;
-  border-top: 1px solid $grey-color-border;
+  transition: 0.5s background-color ease;
+
+  &::before {
+  content : "";
+  position: absolute;
+  left    : 3%;
+  bottom  : 100%;
+  height  : 1px;
+  width   : 94%; 
+  border-bottom: 1px solid $grey-color-border;
+  }
+
+  &-active{
+    background-color: $blue-color-hover;
+  }
+
+  &:hover{
+    background-color: $blue-color-hover;
+  }
 
   &__user-image {
     width: 47px;
@@ -30,16 +51,16 @@ $white-color: #FFFFFF;
 
 .dialog-info {
   display: flex;
-  
   flex-direction: column;
+  justify-content: flex-start;
   width: 240px;
+  height: 67px;
   padding-left: 10px;
 
   &__title {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    gap: 5px;
+    margin: 12px 0 4px 0;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -49,7 +70,6 @@ $white-color: #FFFFFF;
     font-weight: 600;
     font-size: 13px;
     line-height: 13px;
-
   }
 
   &__date {

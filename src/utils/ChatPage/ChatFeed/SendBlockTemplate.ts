@@ -1,9 +1,7 @@
 export const sendFieldTemplate = `
     <div class="message-block">
       <div class="message-block__files"></div>
-      <div class="message-block__message-field">
-        <input type="text" name="message" class="message-field">
-      </div>
+      <input type="text" name="message" class="message-block__message-field" value="Сообщение">
       <div class="message-block__send-button"></div>
     </div>
 `;
