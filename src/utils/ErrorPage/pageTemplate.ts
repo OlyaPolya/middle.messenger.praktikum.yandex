@@ -1,3 +1,5 @@
+import './style.scss';
+
 export const pageLayout = `
 <div class="error-page">
   <h1 class="error-page__title">{{{errorCode}}}</h1>

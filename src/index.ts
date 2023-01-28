@@ -6,12 +6,12 @@ import { createChatPage } from './utils/ChatPage/index';
 import { userMessages } from './utils/ChatPage/APITamplate/FeedMessage';
 import { createProfilePage } from './utils/ProfilePage/index';
 import { buttonsProfile, fieldsProfile, fieldsPasswordProfile, buttonsSaveProfile } from './utils/ProfilePage/fixtures';
-import { createErrorPage } from './utils/ServerErrorPage/index';
+import { createErrorPage } from './utils/ErrorPage/index';
 
 const section = document.querySelector('.main');
 if (section) {
   // section.innerHTML = createSignInPage();
-  section.innerHTML = createProfilePage(fieldsProfile, buttonsProfile, 'readonly');
+  section.innerHTML = createErrorPage('404', 'Не туда попали');
   
 }
 
