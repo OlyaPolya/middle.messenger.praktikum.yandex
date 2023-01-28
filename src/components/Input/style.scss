@@ -1,6 +1,4 @@
-$font: Inter;
-$blue-color: #3369f3;
-$red-color:#FF2F2F;
+@import '../../style.scss';
 
 .label {
   display: flex;
@@ -12,31 +10,41 @@ $red-color:#FF2F2F;
 
   &-input__subtitle {
     font-family: $font;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
     font-size: 9px;
-    color: #999999;
+    line-height: 9px;
+    color: $grey-color;
+    
   }
 
   &_red {
     .input {
-      color: $red-color;
+      color: $red-color-input;
     }
     
     &::after { 
       position: absolute;
       left: 0;
-      bottom: -25px;
+      bottom: -15px;
       content: "Пароли не совпадают";
-      color: $red-color;
+      color: $red-color-input;
       font-size: 8px;
-      
     }
   }
 }
 
 .form-input {
-  padding-bottom: 8px;
+  height: 25px;
   border-style: none;
   border-bottom: 1px solid $blue-color;
   font-size: 13px;
+  line-height: 13px;
+  font-weight: 600;
+  color: #1E1E1E;
+}
+
+.signin-form__password-input,
+.signup-form__password-input {
+  font-size: 16px;
+  letter-spacing: 1px;
 }

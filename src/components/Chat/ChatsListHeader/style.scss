@@ -1,19 +1,13 @@
-$font: Inter;
-$black-color: #1e1e1e;
-$grey-color: #999999;
-$grey-color-border: #EAEAEA;
-$grey-color-fields: #EFEFEF;
-$blue-color: #3369f3;
-$grey-color-background: #FBFBFB;
+@import '../../../style.scss';
 
 .left-panel-header {
   &__user-profile{
-    margin: 21px 10px 23px 0;
+    margin: 14px 10px 23px 0;
     text-align: end;
 
     &>a {
       font-size: 12px;
-      color: #999999;
+      color: $grey-color;
     }
   }
 

@@ -1,12 +1,4 @@
-$font: Inter;
-$black-color: #1e1e1e;
-$grey-color: #999999;
-$grey-color-border: #eaeaea;
-$grey-color-fields: #efefef;
-$blue-color: #3369f3;
-$grey-color-background: #fbfbfb;
-$message-color-recipient: #e4edfd;
-$message-color-sender: #f8f8f8;
+@import '../../style.scss';
 
 .chat-page {
   display: flex;
@@ -61,7 +53,7 @@ $message-color-sender: #f8f8f8;
       bottom: 100%;
       height: 1px;
       width: 100%;
-      border-bottom: 1px solid #EAEAEA;
+      border-bottom: 1px solid $grey-color-border;
     }
   }
 }
@@ -113,7 +105,7 @@ $message-color-sender: #f8f8f8;
     transition: 0.3s background-color ease;
 
     &:hover {
-      background-color: #f5f5f5;
+      background-color: $grey-color-background-hover;
     }
   }
 }
@@ -134,12 +126,12 @@ $message-color-sender: #f8f8f8;
     margin-bottom: 10px;
 
     &_recipient {
-      background-color: $message-color-recipient;
+      background-color: $grey-color-recipient;
       border-radius: 8px 8px 0 8px;
     }
 
     &_sender {
-      background-color: $message-color-sender;
+      background-color: $grey-color-sender;
       border-radius: 8px 8px 8px 0;
     }
   }
@@ -178,9 +170,9 @@ $message-color-sender: #f8f8f8;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(82, 82, 82, 0.5);
+    background-color: $grey-color-background-message;
     border-radius: 30px;
-    color: white;
+    color: $white-color;
   }
 }
 
@@ -218,8 +210,8 @@ $message-color-sender: #f8f8f8;
     flex-grow: 1;
     height: 32px;
     padding-left: 20px;
-    color: #999999;
-    background-color: #EFEFEF;
+    color: $grey-color;
+    background-color: $grey-color-fields;
     border-radius: 30px;
     border: none;
     outline: none;

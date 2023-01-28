@@ -1,9 +1,4 @@
-$font: Inter;
-$black-color: #1e1e1e;
-$grey-color: #999999;
-$grey-color-border: #EAEAEA;
-$grey-color-fields: #EFEFEF;
-$blue-color: #3369f3;
+@import '../../style.scss';
 
 .signup-page {
   display: flex;
@@ -11,9 +6,9 @@ $blue-color: #3369f3;
   align-items: center;
   width: 340px;
   height: 615px;
-  margin-top: 50px;
+  margin-top: 52px;
   border-radius: 12px;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 0px 6px $grey-color-boxshadow;
   font-family: $font;
 
   &__title {

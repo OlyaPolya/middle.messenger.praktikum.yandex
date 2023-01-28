@@ -1,11 +1,14 @@
-$font: Inter;
-$blue-color: #3369f3;
+@import '../../style.scss';
 
 .button {
   font-family: $font;
   font-style: normal;
   font-weight: 500;
-  margin-top: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+
 
   &__blue{
     width: 280px;
@@ -13,7 +16,7 @@ $blue-color: #3369f3;
     border: none;
     border-radius: 8px;
     background-color: $blue-color;
-    color: white;
+    color: $white-color;
   }
 
   &__clear, &__red {    
@@ -27,7 +30,7 @@ $blue-color: #3369f3;
   }
 
   &__red {    
-    color: #FF0000;
+    color: $red-color-button;
   }
 
   &:hover {

@@ -10,9 +10,7 @@ import { createErrorPage } from './utils/ErrorPage/index';
 
 const section = document.querySelector('.main');
 if (section) {
-  // section.innerHTML = createSignInPage();
-  section.innerHTML = createErrorPage('404', 'Не туда попали');
-  
+  section.innerHTML = createSignInPage();  
 }
 
 function createPage(classList: string) {

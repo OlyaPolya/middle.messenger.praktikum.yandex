@@ -52,7 +52,7 @@ export const inputFixture: IInput[] = [
     labelValue: 'Телефон',
     typeInput: 'tel',
     inputClasses: 'input phone-input signup-form__phone-input',
-    inputValue: 'ivanivanov',
+    inputValue: '+7 (909) 967 30 30',
   },
   {
     inputName: 'password',
