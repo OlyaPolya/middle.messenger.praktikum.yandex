@@ -115,3 +115,7 @@
 
   }
 }
+
+.header__user-image_avatar:empty {
+   display: none;
+}

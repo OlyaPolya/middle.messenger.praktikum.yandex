@@ -77,7 +77,7 @@ export const fieldsProfile = [
 
 export const fieldsPasswordProfile = [
   {
-    inputName: 'email',
+    inputName: 'oldPassword',
     fieldClasses: 'data__field-title',
     fieldNameValue: 'Старый пароль',
     inputClasses: 'data__field__email',
@@ -85,7 +85,7 @@ export const fieldsPasswordProfile = [
     type: 'password',
   },
   {
-    inputName: 'email',
+    inputName: 'newPassword',
     fieldClasses: 'data__field-title',
     fieldNameValue: 'Новый пароль',
     inputClasses: 'data__field__email',
