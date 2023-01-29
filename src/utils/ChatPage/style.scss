@@ -41,7 +41,7 @@
     margin-bottom: 30px;
   }
 
-  &__send-message-block{
+  &__send-message-block {
     position: relative;
     display: flex;
     align-items: center;
@@ -137,6 +137,9 @@
   }
 
   &-date {
+    position: absolute;
+    right: -35px;
+    bottom: -10px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -150,12 +153,17 @@
     line-height: 15px;
     position: relative;
   }
-}
 
-.chat-feed__message-date {
-  position: absolute;
-  right: -35px;
-  bottom: -10px;
+  &_sender:last-child {
+    & .message-date__delivered-not {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $grey-color-background-message;
+      border-radius: 30px;
+      color: $white-color;
+    }
+  }
 }
 
 .message-date__delivered {
@@ -165,64 +173,55 @@
   }
 }
 
-.chat-feed__message_sender:last-child {
-  & .message-date__delivered-not {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $grey-color-background-message;
-    border-radius: 30px;
-    color: $white-color;
-  }
-}
+.message {
+  &-text {
+    &_sender {
+      display: flex;
+    }
 
-.message-text {
-  &_sender {
-    display: flex;
-  }
-
-  &_recipient {
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-
-.message-block {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-
-  &__files {
-    display: flex;
-    width: 32px;
-    height: 32px;
-    background-image: url('../../assets//img/paperclip.png');
-
-    &:hover {
-      cursor: pointer;
-      filter: invert(36%) sepia(19%) saturate(7165%) hue-rotate(214deg) brightness(95%) contrast(102%);
+    &_recipient {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 
-  &__message-field {
-    display: flex;
-    flex-grow: 1;
-    height: 32px;
-    padding-left: 20px;
-    color: $grey-color;
-    background-color: $grey-color-fields;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-  }
-
-  &__send-button {
+  &-block {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background-image: url('../../assets/img/sendMessage.png');
+    width: 100%;
+    gap: 10px;
+
+    &__files {
+      display: flex;
+      width: 32px;
+      height: 32px;
+      background-image: url('../../assets//img/paperclip.png');
+
+      &:hover {
+        cursor: pointer;
+        filter: invert(36%) sepia(19%) saturate(7165%) hue-rotate(214deg) brightness(95%) contrast(102%);
+      }
+    }
+
+    &__message-field {
+      display: flex;
+      flex-grow: 1;
+      height: 32px;
+      padding-left: 20px;
+      color: $grey-color;
+      background-color: $grey-color-fields;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+    }
+
+    &__send-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background-image: url('../../assets/img/sendMessage.png');
+    }
   }
 }

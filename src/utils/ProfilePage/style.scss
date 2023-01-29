@@ -105,6 +105,10 @@
     background-image: url('../../assets/img/image.png');
     background-position: center;
     background-repeat: no-repeat;
+
+    &_avatar:empty {
+      display: none;
+    }
   }
 
   &__username {
@@ -116,6 +120,3 @@
   }
 }
 
-.header__user-image_avatar:empty {
-   display: none;
-}

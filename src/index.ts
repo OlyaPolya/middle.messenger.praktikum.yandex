@@ -8,52 +8,89 @@ import { createProfilePage } from './utils/ProfilePage/index';
 import { buttonsProfile, fieldsProfile, fieldsPasswordProfile, buttonsSaveProfile } from './utils/ProfilePage/fixtures';
 import { createErrorPage } from './utils/ErrorPage/index';
 
-const section = document.querySelector('.main');
-if (section) {
-  section.innerHTML = createSignInPage();  
+const SignInPageComponent = {
+  render: () => {
+    return createSignInPage();
+  },
+};
+
+const SignUpPageComponent = {
+  render: () => {
+    return createSignUpPage();
+  },
+};
+
+const ChatPageComponent = {
+  render: () => {
+    return createChatPage(usersSenders, userMessages);
+  },
+};
+
+const ProfilePageComponent = {
+  render: () => {
+    return createProfilePage(fieldsProfile, buttonsProfile, 'readonly');
+  },
+};
+
+const ChangePasswordComponent = {
+  render: () => {
+    return createProfilePage(fieldsPasswordProfile, buttonsSaveProfile);
+  },
+};
+
+const ChangeProfileComponent = {
+  render: () => {
+    return createProfilePage(fieldsProfile, buttonsSaveProfile);
+  },
+};
+
+const NotFoundPageComponent = {
+  render: () => {
+    return createErrorPage('404', 'Не туда попали');
+  },
+};
+
+const ErrorPageComponent = {
+  render: () => {
+    return createErrorPage('500', 'Мы уже фиксим');
+  },
+};
+
+const routes = [
+  { path: '/', component: SignInPageComponent },
+  { path: '/signup', component: SignUpPageComponent },
+  { path: '/chat', component: ChatPageComponent },
+  { path: '/profile', component: ProfilePageComponent },
+  { path: '/change-password', component: ChangePasswordComponent },
+  { path: '/change-profile', component: ChangeProfileComponent },
+  { path: '/404', component: NotFoundPageComponent },
+  { path: '/500', component: ErrorPageComponent },
+];
+
+function parseLocation() {
+  return location.hash.slice(1).toLowerCase() || '/';
 }
 
-function createPage(classList: string) {
-  let page = '';
+function findComponentByPath(
+  path: string,
+  routes: {
+    path: string;
+    component: {
+      render: () => string;
+    };
+  }[]
+) {
+  return routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
+} 
 
-  if (classList.includes('list-item__signin')) {
-    page = createSignInPage();
-  } else if (classList.includes('list-item__signup')) {
-    page = createSignUpPage();
-  } else if (classList.includes('list-item__chat')) {
-    page = createChatPage(usersSenders, userMessages);
-  } else if (classList.includes('list-item__profile')) {
-    page = createProfilePage(fieldsProfile, buttonsProfile, 'readonly');
-  } else if (classList.includes('list-item__change-password')) {
-    page = createProfilePage(fieldsPasswordProfile, buttonsSaveProfile);
-  } else if (classList.includes('list-item__change-profile')) {
-    page = createProfilePage(fieldsProfile, buttonsSaveProfile);
-  } else if (classList.includes('list-item__404')) {
-    page = createErrorPage('404', 'Не туда попали');
-  } else if (classList.includes('list-item__500')) {
-    page = createErrorPage('500', 'Мы уже фиксим');
-  }
-
+const router = () => {
+  const path = parseLocation();
+  const { component = ErrorPageComponent } = findComponentByPath(path, routes) || {};
+  const section = document.querySelector('.main');
   if (section) {
-    section.innerHTML = page;
-  }
-
-  const activeDialog = document.querySelector('.chat-preview:last-child');
-  if (activeDialog) {
-    activeDialog.classList.add('chat-preview-active');
+    section.innerHTML = component.render();
   }
 }
 
-function createListeners() {
-  const listPages = document.querySelectorAll('.modal__list-item');
-  listPages.forEach((item) => {
-    item.addEventListener('click', (element) => {
-      const itemClasses = element.target as HTMLElement;
-      if (itemClasses) {
-        createPage(itemClasses.className); 
-      }
-    })
-  })
-}
-
-createListeners();
+window.addEventListener('hashchange', router);
+window.addEventListener('load', router);
