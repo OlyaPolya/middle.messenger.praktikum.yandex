@@ -1,5 +1,6 @@
-import './style.scss';
+import "./style.scss";
 
-const button = '<button class="{{{classes}}}" disabled>{{{value}}}</button>';
+const button =
+  '<button class="{{{classes}}}" {{{buttonType}}} disabled>{{{value}}}</button>';
 
 export default button;

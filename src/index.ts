@@ -1,12 +1,17 @@
 import './style.scss';
-import { createSignInPage } from './utils/SignInPage/index';
-import { createSignUpPage } from './utils/SignUpPage/index';
-import { usersSenders } from './utils/ChatPage/APITamplate/ChatsListUsers';
-import { createChatPage } from './utils/ChatPage/index';
-import { userMessages } from './utils/ChatPage/APITamplate/FeedMessage';
-import { createProfilePage } from './utils/ProfilePage/index';
-import { buttonsProfile, fieldsProfile, fieldsPasswordProfile, buttonsSaveProfile } from './utils/ProfilePage/fixtures';
-import { createErrorPage } from './utils/ErrorPage/index';
+import { createSignInPage } from './pages/SignInPage/index';
+import { createSignUpPage } from './pages/SignUpPage/index';
+import { usersSenders } from './pages/ChatPage/APITamplate/ChatsListUsers';
+import { createChatPage } from './pages/ChatPage/index';
+import { userMessages } from './pages/ChatPage/APITamplate/FeedMessage';
+import { createProfilePage } from './pages/ProfilePage/index';
+import {
+  buttonsProfile,
+  fieldsProfile,
+  fieldsPasswordProfile,
+  buttonsSaveProfile,
+} from './pages/ProfilePage/fixtures';
+import { createErrorPage } from './pages/ErrorPage/index';
 
 const SignInPageComponent = {
   render: () => {
@@ -80,17 +85,21 @@ function findComponentByPath(
     };
   }[]
 ) {
-  return routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) || undefined;
-} 
+  return (
+    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) ||
+    undefined
+  );
+}
 
 const router = () => {
   const path = parseLocation();
-  const { component = ErrorPageComponent } = findComponentByPath(path, routes) || {};
+  const { component = ErrorPageComponent } =
+    findComponentByPath(path, routes) || {};
   const section = document.querySelector('.main');
   if (section) {
     section.innerHTML = component.render();
   }
-}
+};
 
 window.addEventListener('hashchange', router);
 window.addEventListener('load', router);
