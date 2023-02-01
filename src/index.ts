@@ -14,9 +14,7 @@ import {
 import { createErrorPage } from './pages/ErrorPage/index';
 
 const SignInPageComponent = {
-  render: () => {
-    return createSignInPage();
-  },
+  render: () => createSignInPage(),
 };
 
 const SignUpPageComponent = {
