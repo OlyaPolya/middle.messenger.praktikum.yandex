@@ -12,51 +12,49 @@ import {
   buttonsSaveProfile,
 } from './pages/ProfilePage/fixtures';
 import { createErrorPage } from './pages/ErrorPage/index';
+import Button from './components/Button/Button';
+import render from './utils/renderDom';
 
 const SignInPageComponent = {
   render: () => createSignInPage(),
 };
 
+const button = new Button({
+  button: 'Test signin',
+  classes: 'Test signin-form__submit button  button__blue',
+  value: 'Test Войти',
+  type: 'type="submit"',
+});
+
+// app — это class дива в корне DOM
+render('.app', button);
+
 const SignUpPageComponent = {
-  render: () => {
-    return createSignUpPage();
-  },
+  render: () => createSignUpPage(),
 };
 
 const ChatPageComponent = {
-  render: () => {
-    return createChatPage(usersSenders, userMessages);
-  },
+  render: () => createChatPage(usersSenders, userMessages),
 };
 
 const ProfilePageComponent = {
-  render: () => {
-    return createProfilePage(fieldsProfile, buttonsProfile, 'readonly');
-  },
+  render: () => createProfilePage(fieldsProfile, buttonsProfile, 'readonly'),
 };
 
 const ChangePasswordComponent = {
-  render: () => {
-    return createProfilePage(fieldsPasswordProfile, buttonsSaveProfile);
-  },
+  render: () => createProfilePage(fieldsPasswordProfile, buttonsSaveProfile),
 };
 
 const ChangeProfileComponent = {
-  render: () => {
-    return createProfilePage(fieldsProfile, buttonsSaveProfile);
-  },
+  render: () => createProfilePage(fieldsProfile, buttonsSaveProfile),
 };
 
 const NotFoundPageComponent = {
-  render: () => {
-    return createErrorPage('404', 'Не туда попали');
-  },
+  render: () => createErrorPage('404', 'Не туда попали'),
 };
 
 const ErrorPageComponent = {
-  render: () => {
-    return createErrorPage('500', 'Мы уже фиксим');
-  },
+  render: () => createErrorPage('500', 'Мы уже фиксим'),
 };
 
 const routes = [

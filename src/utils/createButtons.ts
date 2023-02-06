@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars';
-import button from '../components/Button';
+import button from '../components/Button/template';
 import { IButton } from '../pages/SignInPage/types';
 
 export function createButtons(buttonsFixture: IButton[]) {

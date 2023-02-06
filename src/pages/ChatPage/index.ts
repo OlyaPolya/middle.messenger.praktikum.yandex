@@ -16,7 +16,7 @@ export function createChatPage(
     chatListHeader,
     '<div class="left-panel__chat-preview">',
     createPreviewChatPanel(users),
-    '</div>'
+    '</div>',
   );
   const feed = createFeed(messages);
 
@@ -27,3 +27,4 @@ export function createChatPage(
 
   return page;
 }
+

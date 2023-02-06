@@ -1,6 +1,12 @@
-import "./style.scss";
+import Button from './Button';
+import render from '../../utils/renderDom';
 
-const button =
-  '<button class="{{{classes}}}" {{{buttonType}}} disabled>{{{value}}}</button>';
+const button = new Button({
+  button: 'Test signin',
+  classes: 'Test signin-form__submit button  button__blue',
+  value: 'Test Войти',
+  type: 'type="submit"',
+});
 
-export default button;
+// app — это class дива в корне DOM
+render('.app', button);
