@@ -1,12 +1,15 @@
 import Button from './Button';
-import render from '../../utils/renderDom';
+// import renderDOM from '../../utils/renderDom';
 
 const button = new Button({
-  button: 'Test signin',
-  classes: 'Test signin-form__submit button  button__blue',
-  value: 'Test Войти',
-  type: 'type="submit"',
+  'button',
+  attr: {
+    class: 'Test signin-form__submit button  button__blue',
+    type: 'submit',
+    value: 'Test Войти',
+  },
+  events: () => console.log('клик по кнопке')
 });
 
 // app — это class дива в корне DOM
-render('.app', button);
+// renderDOM('.app', button);

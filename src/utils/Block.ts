@@ -1,4 +1,5 @@
 import { v4 as makeUUID } from 'uuid';
+import Handlebars from 'handlebars';
 import EventBus from './EventBus';
 
 class Block {
@@ -9,12 +10,17 @@ class Block {
     FLOW_RENDER: 'flow:render',
   };
 
-  _element = null;
-  _meta = null;
-  props: any;
   _eventBus: EventBus;
-  _id = null;
-  _children = null;
+
+  private _element: HTMLElement | null = null;
+
+  private _meta: { tagName: string; props: any };
+
+  _props: Record<string, any>;
+
+  private _id: string = '';
+
+  _children: null | {} = null;
 
   constructor(tagName = 'div', propsAndChilds = {}) {
     const { children, props } = this.getChildren(propsAndChilds);
@@ -27,13 +33,14 @@ class Block {
 
     this._id = makeUUID();
     this._children = this._makePropsProxy(children);
-    this.props = this._makePropsProxy({ ...props, __id: this._id });
+    this._props = this._makePropsProxy({ ...props, __id: this._id });
     this._registerEvents();
     this._eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _registerEvents(eventBus: EventBus) {
+  private _registerEvents() {
     this._eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
+
     this._eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     this._eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     this._eventBus.on(
@@ -42,77 +49,86 @@ class Block {
     );
   }
 
-  _createResources() {
-    const { tagName } = this._meta;
-    this._element = this._createDocumentElement(tagName);
+  /* создает обертку и вызывает первый рендер */
+  init() {
+    this._element = this._createDocumentElement(this._meta.tagName);
+    this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  init() {
-    this._createResources();
-    this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
+  _createDocumentElement(tagName: string) {
+    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
+    const element = document.createElement(tagName);
+    element.setAttribute('data-id', this._id);
+    return element;
   }
 
   _componentDidMount() {
     this.componentDidMount();
+    Object.values(this._children).forEach((child) => child.dispatchComponentDidMount());
   }
 
-  componentDidMount(oldProps) {}
+  componentDidMount() {}
+
+  /* вызываем ее снаружи после того, как добавили блок на страницу, чтобы опредлить появился блок на странице или нет */
 
   dispatchComponentDidMount() {
-    this._eventBus().emit(Block.EVENTS.FLOW_CDM);
+    this._eventBus.emit(Block.EVENTS.FLOW_CDM);
+    if (Object.keys(this._children).length) {
+      this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
+    }
   }
 
-  _componentDidUpdate(oldProps, newProps) {
+  private _componentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
     if (!response) {
       return;
     }
-    this._render();
+    this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
   }
 
   componentDidUpdate(oldProps, newProps) {
     return true;
   }
 
-  setProps = (nextProps) => {
-    if (!nextProps) {
+  /* изменить пропсы */
+  setProps = (newProps) => {
+    if (!newProps) {
       return;
     }
 
-    const { children, props} = this.getChildren(nextProps);
+    const { children, props } = this.getChildren(newProps);
 
     if (Object.values(children).length) {
-      Object.assign(this._children, children)
+      Object.assign(this._children, children);
     }
     if (Object.values(props).length) {
       Object.assign(this._props, props);
     }
   };
 
-  get element() {
+  get elem() {
     return this._element;
   }
 
-  _render() {
+  private _render() {
     const block = this.render();
-    // Это небезопасный метод для упрощения логики
-    // Используйте шаблонизатор из npm или напишите свой безопасный
-    // Нужно компилировать не в строку (или делать это правильно),
-    // либо сразу превращать в DOM-элементы и возвращать из compile DOM-ноду
     this.removeEvents();
     this._element.innerHTML = '';
-    this._element.innerHTML = block;
-    this.addEvents();
+    this._element.append(block);
+    this._addEvents();
     this.addAttribute();
   }
 
-  render() {}
-
-  getContent() {
-    return this.element;
+  /* в каждом компоненте  мы переопределяем этот метод и возвращаем строку через handlebars */
+  render() {
+    return '';
   }
 
-  makePropsProxy(props) {
+  getContent() {
+    return this._element;
+  }
+
+  private _makePropsProxy(props) {
     const self = this;
 
     return new Proxy(props, {
@@ -121,22 +137,15 @@ class Block {
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop, value) {
-        const oldValue = {...target};
+        const oldValue = { ...target };
         target[prop] = value;
-        self.eventBus.emit(Block.EVENTS.FLOW_CDU, oldValue, target);
+        self._eventBus.emit(Block.EVENTS.FLOW_CDU, oldValue, target);
         return true;
       },
       deleteProperty() {
         throw new Error('Нет доступа');
       },
     });
-  }
-
-  createDocumentElement(tagName) {
-    // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-    const element = document.createElement(tagName);
-    element.setAttribute('data-id', this._id);
-    return element;
   }
 
   show() {
@@ -147,8 +156,8 @@ class Block {
     this.getContent().style.display = 'none';
   }
 
-  addEvents() {
-    const { events = {} } = this.props;
+  _addEvents() {
+    const { events = {} } = this._props;
 
     Object.keys(events).forEach((eventName) => {
       this._element.addEventListener(eventName, events[eventName]);
@@ -156,31 +165,65 @@ class Block {
   }
 
   removeEvents() {
-    const { events = {} } = this._props;
+    if (this._props?.events) {
+      const { events = {} } = this._props;
 
-    Object.keys(events).forEach((eventName) => {
-      this._element.removeEventListener(eventName, events[eventName]);
-    });
+      Object.keys(events).forEach((eventName) => {
+        this._element.removeEventListener(eventName, events[eventName]);
+      });
+    }
   }
 
   addAttribute() {
     const { attr = {} } = this._props;
 
-    Object.keys(events).forEach(([key, value]) => {
+    Object.entries(attr).forEach(([key, value]) => {
       this._element.setAttribute(key, value);
     });
   }
 
-  getChildren(propsandChilds) {
-    const children = {};
-    const props = {};
-    Object.keys(propsandChilds).forEach((key) => {
-      if (propsandChilds[key] instanceof Block) {
-        children[key] = propsandChilds[key];
+  getChildren(propsAndChilds) {
+    type Children = {
+      [key: string]: string;
+    };
+
+    const children: Children = {};
+    const props: Children = {};
+
+    Object.keys(propsAndChilds).forEach((key) => {
+      if (propsAndChilds[key] instanceof Block) {
+        children[key] = propsAndChilds[key];
       } else {
-        props[key] = propsandChilds[key];
+        props[key] = propsAndChilds[key];
       }
     });
+
+    return { children, props };
+  }
+
+  // чтобы  работали events, переданные в компоненты . Мы создаем заглушку, которая будет потом заменяться элементом с событиями
+  compile(template: string, props?: Record<string, any> | undefined) {
+    console.log('kjo');
+    if (typeof (props) === 'undefined') {
+      props = this._props;
+    }
+
+    const propsAndStubs = { ...props };
+
+    Object.entries(this._children).forEach(([key, child]) => {
+      propsAndStubs[key] = `<div data-id='${child._id}'/>`;
+    });
+
+    const fragment = this._createDocumentElement('template');
+    fragment.innerHTML = Handlebars.compile(template)(propsAndStubs);
+
+    Object.values(this._children).forEach((child) => {
+      const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
+      if (stub) {
+        stub.replaceWith(child.getContent());
+      }
+    });
+    return fragment.content;
   }
 }
 

@@ -1,4 +1,4 @@
-export default function render(selector: string, block) {
+export default function renderDOM(selector: string, block) {
   const root: Element | null = document.querySelector(selector);
 
   if (root) {

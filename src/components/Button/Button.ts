@@ -1,29 +1,22 @@
-import Handlebars from 'handlebars';
-import buttonTemplate from './template';
+import template from './template';
 import Block from '../../utils/Block';
 
-type ButtonType = {
-  button: string;
-  classes: string;
-  value: string;
+type Attribute = {
+  class?: string;
   type?: string;
 };
 
+type ButtonProps = {
+  label?: string;
+  attr: Attribute;
+  events?: {
+    click: (e: any) => void;
+  };
+};
+
 class Button extends Block {
-  constructor(props: ButtonType) {
-    super('button', props);
-  }
-
-  render = () => {
-    const template = Handlebars.compile(buttonTemplate);
-    const type = this.props.type ? this.props.type : null;
-    const button = template({
-      classes: this.props.classes,
-      value: this.props.value,
-      buttonType: type,
-    });
-
-    return button;
+  render() {
+    return this.compile(template);
   };
 }
 

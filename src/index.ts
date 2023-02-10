@@ -13,21 +13,42 @@ import {
 } from './pages/ProfilePage/fixtures';
 import { createErrorPage } from './pages/ErrorPage/index';
 import Button from './components/Button/Button';
-import render from './utils/renderDom';
+import renderDOM from './utils/renderDom';
+
+// const SignInPageComponent = {
+//   render: () => createSignInPage(),
+//   // app — это class дива в корне DOM
+// };
+function ff() {
+  const button = new Button('button', {
+    // textContent: 'Test Войти',
+    label: 'Test TEst Войти',
+    innerText: 'innerText',
+    innerHTML: 'innerHTML',
+    textContent: 'textContent',
+    text: 'text',
+    title: 'title',
+    attr: {
+      class: 'Test signin-form__submit button  button__blue',
+      type: 'submit',
+    },
+    events: {
+      click: (e) => {
+        console.log('click', e.target);
+      },
+    },
+  });
+
+  renderDOM('.main', button);
+  // app — это class дива в корне DOM
+}
 
 const SignInPageComponent = {
-  render: () => createSignInPage(),
+  render: () => ff(),
+  // app — это class дива в корне DOM
 };
 
-const button = new Button({
-  button: 'Test signin',
-  classes: 'Test signin-form__submit button  button__blue',
-  value: 'Test Войти',
-  type: 'type="submit"',
-});
 
-// app — это class дива в корне DOM
-render('.app', button);
 
 const SignUpPageComponent = {
   render: () => createSignUpPage(),
@@ -93,7 +114,7 @@ const router = () => {
     findComponentByPath(path, routes) || {};
   const section = document.querySelector('.main');
   if (section) {
-    section.innerHTML = component.render();
+    component.render();
   }
 };
 

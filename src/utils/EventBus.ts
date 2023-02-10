@@ -3,10 +3,10 @@ emit - оповещение подписчиков о событии
 Названия возможных событий лучше описывать в отдельном объекте или использовать enum в TypeScript.
 */
 
-type Function = () => void;
+type Callback = () => void;
 
 type Listeners = {
-  [key: string]: Function[];
+  [key: string]: Callback[];
 };
 
 class EventBus {
