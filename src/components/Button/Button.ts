@@ -1,23 +1,12 @@
-import template from './template';
 import Block from '../../utils/Block';
+import './style.scss';
 
-type Attribute = {
-  class?: string;
-  type?: string;
-};
-
-type ButtonProps = {
-  label?: string;
-  attr: Attribute;
-  events?: {
-    click: (e: any) => void;
-  };
-};
+export const template = '{{{ textContent }}}';
 
 class Button extends Block {
   render() {
     return this.compile(template);
-  };
+  }
 }
 
 export default Button;

@@ -1,5 +1,4 @@
 import './style.scss';
-import { createSignInPage } from './pages/SignInPage/index';
 import { createSignUpPage } from './pages/SignUpPage/index';
 import { usersSenders } from './pages/ChatPage/APITamplate/ChatsListUsers';
 import { createChatPage } from './pages/ChatPage/index';
@@ -12,43 +11,18 @@ import {
   buttonsSaveProfile,
 } from './pages/ProfilePage/fixtures';
 import { createErrorPage } from './pages/ErrorPage/index';
-import Button from './components/Button/Button';
+import SignInPage from './pages/SignInPage/index';
 import renderDOM from './utils/renderDom';
 
 // const SignInPageComponent = {
 //   render: () => createSignInPage(),
 //   // app — это class дива в корне DOM
 // };
-function ff() {
-  const button = new Button('button', {
-    // textContent: 'Test Войти',
-    label: 'Test TEst Войти',
-    innerText: 'innerText',
-    innerHTML: 'innerHTML',
-    textContent: 'textContent',
-    text: 'text',
-    title: 'title',
-    attr: {
-      class: 'Test signin-form__submit button  button__blue',
-      type: 'submit',
-    },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
-  });
-
-  renderDOM('.main', button);
-  // app — это class дива в корне DOM
-}
 
 const SignInPageComponent = {
-  render: () => ff(),
+  render: () => renderDOM('.main', SignInPage),
   // app — это class дива в корне DOM
 };
-
-
 
 const SignUpPageComponent = {
   render: () => createSignUpPage(),

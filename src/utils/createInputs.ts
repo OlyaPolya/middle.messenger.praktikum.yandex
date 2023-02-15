@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars';
-import input from '../components/Input';
+import input from '../components/Input/Label';
 import { IInput } from '../pages/SignInPage/types';
 
 export function createInputs(inputFixture: IInput[]) {

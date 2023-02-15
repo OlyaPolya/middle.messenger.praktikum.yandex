@@ -1,15 +1,36 @@
-export interface IButton {
-  button: string;
-  classes: string;
-  value: string;
-  type? : string;
-}
+type ButtonAttr = {
+  class?: string;
+  type?: string;
+};
 
-export interface IInput {
-  inputName: string;
-  labelClasses: string;
-  labelValue: string;
-  typeInput: string;
-  inputClasses: string;
-  inputValue: string;
-}
+type Events = {
+  click?: (e: any) => void
+};
+
+export type Button = {
+  [key: string]: {
+    textContent?: string;
+    attr?: ButtonAttr;
+    events?: Events;
+  };
+};
+
+type InputAttr = ButtonAttr & {
+  name?: string;
+  value?: string;
+};
+
+export type Input = {
+  [key: string]: {
+    label: {
+      textContent?: string;
+      attr?: InputAttr;
+      events?: Events;
+    };
+    input: {
+      textContent?: string;
+      attr?: InputAttr;
+      events?: Events;
+    };
+  };
+};

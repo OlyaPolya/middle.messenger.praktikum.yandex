@@ -12,13 +12,13 @@ class Block {
 
   _eventBus: EventBus;
 
-  private _element: HTMLElement | null = null;
+  _element: HTMLElement | null = null;
 
-  private _meta: { tagName: string; props: any };
+  _meta: { tagName: string; props: any };
 
   _props: Record<string, any>;
 
-  private _id: string = '';
+  _id: string = '';
 
   _children: null | {} = null;
 
@@ -52,6 +52,7 @@ class Block {
   /* создает обертку и вызывает первый рендер */
   init() {
     this._element = this._createDocumentElement(this._meta.tagName);
+
     this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
   }
 
@@ -203,7 +204,6 @@ class Block {
 
   // чтобы  работали events, переданные в компоненты . Мы создаем заглушку, которая будет потом заменяться элементом с событиями
   compile(template: string, props?: Record<string, any> | undefined) {
-    console.log('kjo');
     if (typeof (props) === 'undefined') {
       props = this._props;
     }
@@ -211,7 +211,7 @@ class Block {
     const propsAndStubs = { ...props };
 
     Object.entries(this._children).forEach(([key, child]) => {
-      propsAndStubs[key] = `<div data-id='${child._id}'/>`;
+      propsAndStubs[key] = `<div data-id='${child._id}'></div>`;
     });
 
     const fragment = this._createDocumentElement('template');

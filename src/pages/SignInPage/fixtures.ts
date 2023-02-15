@@ -1,34 +1,74 @@
-import { IButton, IInput } from "./types";
+import { Button, Input as InputType } from './types';
+import Input from '../../components/Input/Input';
 
-export const buttonFixture: IButton[] = [
-  {
-    button: "signin",
-    classes: "signin-form__submit button  button__blue",
-    value: "Войти",
-    type: 'type="submit"',
+export const buttonsFixture: Button = {
+  buttonSignIn: {
+    textContent: 'Войти',
+    attr: {
+      class: 'signin-form__submit button  button__blue',
+      type: 'submit',
+    },
+    events: {
+      click: (e) => {
+        console.log('click', e.target);
+      },
+    },
   },
-  {
-    button: "signUp",
-    classes: "signin-form__signup button  button__clear",
-    value: "Нет аккаунта?",
+  buttonSignUp: {
+    textContent: 'Нет аккаунта?',
+    attr: {
+      class: 'signin-form__signup button  button__clear',
+    },
+    events: {
+      click: (e) => {
+        console.log('click', e.target);
+      },
+    },
   },
-];
+};
 
-export const inputFixture: IInput[] = [
-  {
-    inputName: "login",
-    labelClasses: "label signin-form__label-input",
-    labelValue: "Логин",
-    typeInput: "text",
-    inputClasses: "login-input signin-form__username-input",
-    inputValue: "ivanivanov",
+export const inputsFixture = {
+  login: {
+    attr: {
+      class: 'form-input login-input signin-form__username-input',
+      name: 'login',
+      type: 'text',
+      value: 'ivanivanov',
+    },
+    events: {
+      click: (e) => {
+        console.log('click', e.target);
+      },
+    },
   },
-  {
-    inputName: "password",
-    labelClasses: "label signin-form__label-input",
-    labelValue: "Пароль",
-    typeInput: "password",
-    inputClasses: "password-input signin-form__password-input",
-    inputValue: "ivanivanov",
+  password: {
+    attr: {
+      class: 'form-input password-input signin-form__password-input',
+      name: 'password',
+      type: 'password',
+      value: 'ivanivanov',
+    },
+    events: {
+      click: (e) => {
+        console.log('click', e.target);
+      },
+    },
   },
-];
+};
+
+export const labelFixture = {
+  login: {
+    value: 'Логин',
+    input: new Input('input', inputsFixture.login),
+    attr: {
+      class: 'label signin-form__label-input',
+    },
+  },
+  password: {
+    value: 'Пароль',
+    input: new Input('input', inputsFixture.password),
+    attr: {
+      class: 'label signin-form__label-input',
+    },
+  },
+};
