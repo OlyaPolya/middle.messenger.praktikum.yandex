@@ -12,6 +12,7 @@ import {
 } from './pages/ProfilePage/fixtures';
 import { createErrorPage } from './pages/ErrorPage/index';
 import SignInPage from './pages/SignInPage/index';
+import SignUpPage from './pages/SignUpPage/index';
 import renderDOM from './utils/renderDom';
 
 // const SignInPageComponent = {
@@ -25,7 +26,7 @@ const SignInPageComponent = {
 };
 
 const SignUpPageComponent = {
-  render: () => createSignUpPage(),
+  render: () => renderDOM('.main', SignUpPage),
 };
 
 const ChatPageComponent = {
@@ -84,12 +85,9 @@ function findComponentByPath(
 
 const router = () => {
   const path = parseLocation();
-  const { component = ErrorPageComponent } =
-    findComponentByPath(path, routes) || {};
-  const section = document.querySelector('.main');
-  if (section) {
-    component.render();
-  }
+  const { component = ErrorPageComponent } = findComponentByPath(path, routes) || {};
+  component.render();
+
 };
 
 window.addEventListener('hashchange', router);

@@ -1,18 +1,32 @@
-import Handlebars from "handlebars";
-import { buttonFixture, inputFixture } from "./fixtures";
-import { createButtons } from "../../utils/createButtons";
-import { createInputs } from "../../utils/createInputs";
-import { page } from "./pageTemplate";
 import "./style.scss";
+import Label from '../../components/Input/Label';
+import Button from '../../components/Button/Button';
+import { buttonFixture, labelFixture } from './fixtures';
+import SignUp from './SignUp';
 
-export function createSignUpPage() {
-  const formTemplate = Handlebars.compile(page);
-  const inputsTemplate = createInputs(inputFixture);
-  const buttonsTemplate = createButtons(buttonFixture);
-  const pageLayout = formTemplate({
-    inputs: inputsTemplate,
-    buttons: buttonsTemplate,
-  });
+const email = new Label('label', labelFixture.email);
+const login = new Label('label', labelFixture.login);
+const firstName = new Label('label', labelFixture.firstName);
+const secondName = new Label('label', labelFixture.secondName);
+const phone = new Label('label', labelFixture.phone);
+const password = new Label('label', labelFixture.password);
+const repeatPassword = new Label('label', labelFixture.repeatPassword);
+const signupButton = new Button('button', buttonFixture.signup);
+const loginButton = new Button('button', buttonFixture.login);
 
-  return pageLayout;
-}
+const SignUpPage = new SignUp('div', {
+  email,
+  login,
+  firstName,
+  secondName,
+  phone,
+  password,
+  repeatPassword,
+  signupButton,
+  loginButton,
+  attr: {
+    class: 'signup-page',
+  },
+});
+
+export default SignUpPage;

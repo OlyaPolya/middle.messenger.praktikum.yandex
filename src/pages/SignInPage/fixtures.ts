@@ -2,7 +2,7 @@ import { Button, Input as InputType } from './types';
 import Input from '../../components/Input/Input';
 
 export const buttonsFixture: Button = {
-  buttonSignIn: {
+  signIn: {
     textContent: 'Войти',
     attr: {
       class: 'signin-form__submit button  button__blue',
@@ -14,7 +14,7 @@ export const buttonsFixture: Button = {
       },
     },
   },
-  buttonSignUp: {
+  signUp: {
     textContent: 'Нет аккаунта?',
     attr: {
       class: 'signin-form__signup button  button__clear',
