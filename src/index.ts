@@ -2,13 +2,11 @@ import './style.scss';
 import { usersSenders } from './pages/ChatPage/APITamplate/ChatsListUsers';
 import { createChatPage } from './pages/ChatPage/index';
 import { userMessages } from './pages/ChatPage/APITamplate/FeedMessage';
-import { createProfilePage } from './pages/ProfilePage/index';
 import {
-  buttonsProfile,
-  fieldsProfile,
-  fieldsPasswordProfile,
-  buttonsSaveProfile,
-} from './pages/ProfilePage/fixtures';
+  ProfilePage,
+  SettingsPage,
+  SecurityPage,
+} from './pages/ProfilePage/index';
 import { ServerError, RequestError } from './pages/ErrorPage/index';
 import SignInPage from './pages/SignInPage/index';
 import SignUpPage from './pages/SignUpPage/index';
@@ -27,15 +25,15 @@ const ChatPageComponent = {
 };
 
 const ProfilePageComponent = {
-  render: () => createProfilePage(fieldsProfile, buttonsProfile, 'readonly'),
+  render: () => renderDOM('.main', ProfilePage),
 };
 
-const ChangePasswordComponent = {
-  render: () => createProfilePage(fieldsPasswordProfile, buttonsSaveProfile),
+const SecurityPageComponent = {
+  render: () => renderDOM('.main', SecurityPage),
 };
 
-const ChangeProfileComponent = {
-  render: () => createProfilePage(fieldsProfile, buttonsSaveProfile),
+const SettingsPageComponent = {
+  render: () => renderDOM('.main', SettingsPage),
 };
 
 const RequestErrorPageComponent = {
@@ -51,8 +49,8 @@ const routes = [
   { path: '/signup', component: SignUpPageComponent },
   { path: '/chat', component: ChatPageComponent },
   { path: '/profile', component: ProfilePageComponent },
-  { path: '/change-password', component: ChangePasswordComponent },
-  { path: '/change-profile', component: ChangeProfileComponent },
+  { path: '/change-password', component: SecurityPageComponent },
+  { path: '/change-profile', component: SettingsPageComponent },
   { path: '/404', component: RequestErrorPageComponent },
   { path: '/500', component: ServerErrorPageComponent },
 ];

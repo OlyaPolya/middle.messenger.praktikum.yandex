@@ -125,6 +125,7 @@ const inputsFixture = {
 
 export const labelFixture = {
   repeatPassword: {
+    spanClass: 'label-input__subtitle',
     value: 'Пароль (еще раз)',
     input: new Input('input', inputsFixture.repeatPassword),
     attr: {
@@ -132,6 +133,7 @@ export const labelFixture = {
     },
   },
   password: {
+    spanClass: 'label-input__subtitle',
     value: 'Пароль',
     input: new Input('input', inputsFixture.password),
     attr: {
@@ -140,6 +142,7 @@ export const labelFixture = {
   },
 
   phone: {
+    spanClass: 'label-input__subtitle',
     value: 'Телефон',
     input: new Input('input', inputsFixture.phone),
     attr: {
@@ -148,6 +151,7 @@ export const labelFixture = {
   },
 
   secondName: {
+    spanClass: 'label-input__subtitle',
     value: 'Фамилия',
     input: new Input('input', inputsFixture.secondName),
     attr: {
@@ -156,6 +160,7 @@ export const labelFixture = {
   },
 
   firstName: {
+    spanClass: 'label-input__subtitle',
     value: 'Имя',
     input: new Input('input', inputsFixture.firstName),
     attr: {
@@ -164,6 +169,7 @@ export const labelFixture = {
   },
 
   email: {
+    spanClass: 'label-input__subtitle',
     value: 'Почта',
     input: new Input('input', inputsFixture.email),
     attr: {
@@ -171,6 +177,7 @@ export const labelFixture = {
     },
   },
   login: {
+    spanClass: 'label-input__subtitle',
     value: 'Логин',
     input: new Input('input', inputsFixture.login),
     attr: {

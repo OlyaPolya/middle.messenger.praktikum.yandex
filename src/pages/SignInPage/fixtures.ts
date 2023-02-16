@@ -58,6 +58,7 @@ export const inputsFixture = {
 
 export const labelFixture = {
   login: {
+    spanClass: 'label-input__subtitle',
     value: 'Логин',
     input: new Input('input', inputsFixture.login),
     attr: {
@@ -65,6 +66,7 @@ export const labelFixture = {
     },
   },
   password: {
+    spanClass: 'label-input__subtitle',
     value: 'Пароль',
     input: new Input('input', inputsFixture.password),
     attr: {

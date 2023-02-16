@@ -1,45 +1,57 @@
-import Handlebars from "handlebars";
-import { pageLayout } from "./ProfileTemplate";
-import { IField, IButton } from "./types";
-import { field } from "../../components/ProfileField";
-import { createButtons } from "../../utils/createButtons";
-import "./style.scss";
+import Label from '../../components/Input/Label';
+import { buttonsFixture, labelFixture } from './fixtures';
+import './style.scss';
+import Button from '../../components/Button/Button';
+import Profile from './Profile';
 
-export function createFields(fields: IField[], readable?: string) {
-  const fieldTemplate = Handlebars.compile(field);
-  const readonly = readable === undefined ? null : readable;
+const email = new Label('div', labelFixture.email);
+const login = new Label('div', labelFixture.login);
+const firstName = new Label('div', labelFixture.firstName);
+const secondName = new Label('div', labelFixture.secondName);
+const displayName = new Label('div', labelFixture.displayName);
+const phone = new Label('div', labelFixture.phone);
+const oldPassword = new Label('div', labelFixture.oldPassword);
+const newPassword = new Label('div', labelFixture.newPassword);
+const repeatNewPassword = new Label('div', labelFixture.repeatNewPassword);
+const changeData = new Button('button', buttonsFixture.changeData);
+const changePassword = new Button('button', buttonsFixture.changePassword);
+const signOut = new Button('button', buttonsFixture.signOut);
+const save = new Button('button', buttonsFixture.save);
 
-  const fieldsList = fields.reduce((concat, field) => {
-    return (
-      concat +
-      fieldTemplate({
-        fieldClasses: field.fieldClasses,
-        fieldName: field.fieldNameValue,
-        inputClass: field.inputClasses,
-        inputName: field.inputName,
-        userData: field.userData,
-        readable: readonly,
-        type: field.type,
-      })
-    );
-  }, "");
+export const ProfilePage = new Profile('div', {
+  email,
+  login,
+  firstName,
+  secondName,
+  displayName,
+  phone,
+  changeData,
+  changePassword,
+  signOut,
+  attr: {
+    class: 'user-page',
+  },
+});
 
-  return fieldsList;
-}
+export const SettingsPage = new Profile('div', {
+  email,
+  login,
+  firstName,
+  secondName,
+  displayName,
+  phone,
+  save,
+  attr: {
+    class: 'user-page',
+  },
+});
 
-export function createProfilePage(
-  fields: IField[],
-  buttons: IButton[],
-  readable?: string
-) {
-  const pageTemplate = Handlebars.compile(pageLayout);
-  const userInfo = createFields(fields, readable);
-  const buttonsList = createButtons(buttons);
-
-  const page = pageTemplate({
-    userData: userInfo,
-    buttons: buttonsList,
-  });
-
-  return page;
-}
+export const SecurityPage = new Profile('div', {
+  oldPassword,
+  newPassword,
+  repeatNewPassword,
+  save,
+  attr: {
+    class: 'user-page',
+  },
+});

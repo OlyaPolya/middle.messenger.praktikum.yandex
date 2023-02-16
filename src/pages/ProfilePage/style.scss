@@ -83,7 +83,7 @@
     color: $grey-color-error;
   }
 
-  &__email {
+  &__email, &__body {
     outline: none;
     border: none;
     color: $grey-color;

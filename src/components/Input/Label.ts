@@ -8,7 +8,7 @@ import './style.scss';
 // </label>`;
 
 const template = `
-  <span class="label-input__subtitle">{{{value}}}</span>
+  <span class={{{spanClass}}}>{{{value}}}</span>
   {{{input}}}`;
 
 class Input extends Block {
@@ -18,3 +18,5 @@ class Input extends Block {
 }
 
 export default Input;
+
+// label-input__subtitle label-input__title
