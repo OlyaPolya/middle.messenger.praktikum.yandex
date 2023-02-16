@@ -1,5 +1,4 @@
 import './style.scss';
-import { createSignUpPage } from './pages/SignUpPage/index';
 import { usersSenders } from './pages/ChatPage/APITamplate/ChatsListUsers';
 import { createChatPage } from './pages/ChatPage/index';
 import { userMessages } from './pages/ChatPage/APITamplate/FeedMessage';
@@ -10,19 +9,13 @@ import {
   fieldsPasswordProfile,
   buttonsSaveProfile,
 } from './pages/ProfilePage/fixtures';
-import { createErrorPage } from './pages/ErrorPage/index';
+import { ServerError, RequestError } from './pages/ErrorPage/index';
 import SignInPage from './pages/SignInPage/index';
 import SignUpPage from './pages/SignUpPage/index';
 import renderDOM from './utils/renderDom';
 
-// const SignInPageComponent = {
-//   render: () => createSignInPage(),
-//   // app — это class дива в корне DOM
-// };
-
 const SignInPageComponent = {
   render: () => renderDOM('.main', SignInPage),
-  // app — это class дива в корне DOM
 };
 
 const SignUpPageComponent = {
@@ -45,12 +38,12 @@ const ChangeProfileComponent = {
   render: () => createProfilePage(fieldsProfile, buttonsSaveProfile),
 };
 
-const NotFoundPageComponent = {
-  render: () => createErrorPage('404', 'Не туда попали'),
+const RequestErrorPageComponent = {
+  render: () => renderDOM('.main', RequestError),
 };
 
-const ErrorPageComponent = {
-  render: () => createErrorPage('500', 'Мы уже фиксим'),
+const ServerErrorPageComponent = {
+  render: () => renderDOM('.main', ServerError),
 };
 
 const routes = [
@@ -60,12 +53,12 @@ const routes = [
   { path: '/profile', component: ProfilePageComponent },
   { path: '/change-password', component: ChangePasswordComponent },
   { path: '/change-profile', component: ChangeProfileComponent },
-  { path: '/404', component: NotFoundPageComponent },
-  { path: '/500', component: ErrorPageComponent },
+  { path: '/404', component: RequestErrorPageComponent },
+  { path: '/500', component: ServerErrorPageComponent },
 ];
 
 function parseLocation() {
-  return location.hash.slice(1).toLowerCase() || '/';
+  return window.location.hash.slice(1).toLowerCase() || '/';
 }
 
 function findComponentByPath(
@@ -73,21 +66,20 @@ function findComponentByPath(
   routes: {
     path: string;
     component: {
-      render: () => string;
+      render: () => Element;
     };
   }[]
 ) {
   return (
-    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) ||
-    undefined
+    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm')))
+    || undefined
   );
 }
 
 const router = () => {
   const path = parseLocation();
-  const { component = ErrorPageComponent } = findComponentByPath(path, routes) || {};
+  const { component = RequestErrorPageComponent } = findComponentByPath(path, routes) || {};
   component.render();
-
 };
 
 window.addEventListener('hashchange', router);

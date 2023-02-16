@@ -1,12 +1,17 @@
-import Handlebars from "handlebars";
-import { pageLayout } from "./pageTemplate";
+import Error from './Error';
 
-export function createErrorPage(code: string, message: string) {
-  const pageTemplate = Handlebars.compile(pageLayout);
-  const page = pageTemplate({
-    errorCode: code,
-    errorMessage: message,
-  });
+export const ServerError = new Error('div', {
+  errorCode: '500',
+  errorMessage: 'Мы уже фиксим',
+  attr: {
+    class: 'error-page',
+  }
+});
 
-  return page;
-}
+export const RequestError = new Error('div', {
+  errorCode: '404',
+  errorMessage: 'Не туда попали',
+  attr: {
+    class: 'error-page',
+  },
+});
