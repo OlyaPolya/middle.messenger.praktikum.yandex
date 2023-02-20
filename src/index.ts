@@ -1,16 +1,14 @@
 import './style.scss';
-import { usersSenders } from './pages/ChatPage/APITamplate/ChatsListUsers';
-import { createChatPage } from './pages/ChatPage/index';
-import { userMessages } from './pages/ChatPage/APITamplate/FeedMessage';
 import {
   ProfilePage,
   SettingsPage,
   SecurityPage,
-} from './pages/ProfilePage/index';
-import { ServerError, RequestError } from './pages/ErrorPage/index';
-import SignInPage from './pages/SignInPage/index';
-import SignUpPage from './pages/SignUpPage/index';
+} from './pages/Profile/index';
+import { ServerError, RequestError } from './pages/Error/index';
+import SignInPage from './pages/SignIn/index';
+import SignUpPage from './pages/SignUp/index';
 import renderDOM from './utils/renderDom';
+import ChatPage from './pages/Chat/index';
 
 const SignInPageComponent = {
   render: () => renderDOM('.main', SignInPage),
@@ -21,7 +19,7 @@ const SignUpPageComponent = {
 };
 
 const ChatPageComponent = {
-  render: () => createChatPage(usersSenders, userMessages),
+  render: () => renderDOM('.main', ChatPage),
 };
 
 const ProfilePageComponent = {
@@ -49,8 +47,8 @@ const routes = [
   { path: '/signup', component: SignUpPageComponent },
   { path: '/chat', component: ChatPageComponent },
   { path: '/profile', component: ProfilePageComponent },
-  { path: '/change-password', component: SecurityPageComponent },
-  { path: '/change-profile', component: SettingsPageComponent },
+  { path: '/security', component: SecurityPageComponent },
+  { path: '/settings', component: SettingsPageComponent },
   { path: '/404', component: RequestErrorPageComponent },
   { path: '/500', component: ServerErrorPageComponent },
 ];
@@ -69,14 +67,15 @@ function findComponentByPath(
   }[]
 ) {
   return (
-    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm')))
-    || undefined
+    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) ||
+    undefined
   );
 }
 
 const router = () => {
   const path = parseLocation();
-  const { component = RequestErrorPageComponent } = findComponentByPath(path, routes) || {};
+  const { component = RequestErrorPageComponent } =
+    findComponentByPath(path, routes) || {};
   component.render();
 };
 
