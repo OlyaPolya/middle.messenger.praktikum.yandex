@@ -17,7 +17,7 @@ const MONTH_NAME = [
   'Дек',
 ];
 
-function receiveDate(time: string) {
+function receiveDate(time) {
   const messageTime = new Date(time);
   const now = new Date();
   let date;

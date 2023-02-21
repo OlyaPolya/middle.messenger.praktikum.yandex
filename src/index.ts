@@ -10,8 +10,14 @@ import SignUpPage from './pages/SignUp/index';
 import renderDOM from './utils/renderDom';
 import ChatPage from './pages/Chat/index';
 
+import request from './utils/HTTPTransport';
+
+// const SignInPageComponent = {
+//   render: () => renderDOM('.main', SignInPage),
+// };
+
 const SignInPageComponent = {
-  render: () => renderDOM('.main', SignInPage),
+  render: () => request('https://ya.ru/'),
 };
 
 const SignUpPageComponent = {
