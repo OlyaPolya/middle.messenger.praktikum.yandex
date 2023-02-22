@@ -5,6 +5,9 @@ function validateForm(): boolean {
   if (form) {
     const inputsForm = form.querySelectorAll('input');
     const inputsArray = Array.from(inputsForm);
+    inputsArray.forEach((input) => {
+      isValidField(input);
+    });
     const isValid = inputsArray.every((input) => isValidField(input) === true);
 
     type FormData = {
@@ -17,6 +20,7 @@ function validateForm(): boolean {
         formData[`${input.name}`] = input.value;
       });
 
+      // eslint-disable-next-line no-console
       console.log(formData);
     }
 

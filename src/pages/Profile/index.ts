@@ -31,6 +31,22 @@ export const ProfilePage = new Profile('div', {
   attr: {
     class: 'user-page',
   },
+  events: {
+    focus: (e: Event) => {
+      console.log('focus 1', e.target);
+      // isValidField(e.target as HTMLInputElement);
+    },
+    blur: (e: Event) => {
+      console.log('blur 1', e.target);
+      // isValidField(e.target as HTMLInputElement);
+    },
+    click: (e: Event) => {
+      console.log(e.target);
+      e.preventDefault();
+      e.stopPropagation();
+      // validateForm();
+    },
+  },
 });
 
 export const SettingsPage = new Profile('div', {
@@ -44,6 +60,22 @@ export const SettingsPage = new Profile('div', {
   attr: {
     class: 'user-page',
   },
+  events: {
+    focus: (e: Event) => {
+      console.log('focus 2', e.target);
+      // isValidField(e.target as HTMLInputElement);
+    },
+    blur: (e: Event) => {
+      console.log('blur 2', e.target);
+      // isValidField(e.target as HTMLInputElement);
+    },
+    click: (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log(e.target);
+      // validateForm();
+    },
+  },
 });
 
 export const SecurityPage = new Profile('div', {
@@ -53,5 +85,21 @@ export const SecurityPage = new Profile('div', {
   save,
   attr: {
     class: 'user-page',
+  },
+  events: {
+    focus: (e: Event) => {
+      console.log('focus 3', e.target);
+      // isValidField(e.target as HTMLInputElement);
+    },
+    blur: (e: Event) => {
+      console.log('blur 3', e.target);
+      // isValidField(e.target as HTMLInputElement);
+    },
+    click: (e: Event) => {
+      console.log(e.target);
+      e.preventDefault();
+      e.stopPropagation();
+      // validateForm();
+    },
   },
 });

@@ -8,22 +8,22 @@ export const buttonFixture = {
       class: 'signup-form__submit button  button__blue',
       type: 'submit',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   login: {
     textContent: 'Войти',
     attr: {
       class: 'signup-form__signup button  button__clear',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
 };
 
@@ -35,11 +35,11 @@ const inputsFixture = {
       type: 'email',
       value: 'pochta@yandex.ru',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   login: {
     attr: {
@@ -48,24 +48,24 @@ const inputsFixture = {
       type: 'text',
       value: 'ivanivanov',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   firstName: {
     attr: {
       class: 'form-input input username-input signup-form__username-input',
       name: 'first_name',
       type: 'text',
-      value: 'Иван',
+      value: 'иван',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   secondName: {
     attr: {
@@ -75,24 +75,24 @@ const inputsFixture = {
       type: 'text',
       value: 'Иванов',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   phone: {
     attr: {
       class: 'form-input input phone-input signup-form__phone-input',
       name: 'phone',
       type: 'tel',
-      value: '+7(909)9673030',
+      value: '+79099673030.',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
 
   password: {
@@ -100,26 +100,26 @@ const inputsFixture = {
       class: 'form-input input password-input signup-form__password-input',
       name: 'password',
       type: 'password',
-      value: 'ivanivanov',
+      value: 'I1vanivanov',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   repeatPassword: {
     attr: {
       class: 'form-input input password-input signup-form__password-input',
       name: 'repeatPassword',
       type: 'password',
-      value: 'ivanivanov',
+      value: 'I1vanivanov',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
 };
 

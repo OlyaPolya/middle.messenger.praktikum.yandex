@@ -6,33 +6,33 @@ export const buttonsFixture = {
     attr: {
       class: 'user-page-form__button  button__clear',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   changePassword: {
     textContent: 'Изменить пароль',
     attr: {
       class: 'user-page-form__button  button__clear',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   signOut: {
     textContent: 'Выйти',
     attr: {
       class: 'user-page-form__button  button__red',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   save: {
     textContent: 'Сохранить',
@@ -40,11 +40,11 @@ export const buttonsFixture = {
       class: 'user-page-form__button  button__blue',
       type: 'submit',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
 };
 
@@ -57,11 +57,11 @@ export const inputsFixture = {
       type: 'text',
       value: 'pochta@yandex.ru',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   login: {
     attr: {
@@ -70,11 +70,11 @@ export const inputsFixture = {
       type: 'text',
       value: 'ivanivanov',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   firstName: {
     attr: {
@@ -83,11 +83,11 @@ export const inputsFixture = {
       type: 'text',
       value: 'Иван',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   secondName: {
     attr: {
@@ -96,11 +96,11 @@ export const inputsFixture = {
       type: 'text',
       value: 'Иванов',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   displayName: {
     attr: {
@@ -109,11 +109,11 @@ export const inputsFixture = {
       type: 'text',
       value: 'Иван',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   phone: {
     attr: {
@@ -122,11 +122,11 @@ export const inputsFixture = {
       type: 'phone',
       value: '+7(909)9673030',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   oldPassword: {
     attr: {
@@ -135,11 +135,11 @@ export const inputsFixture = {
       type: 'password',
       value: 'password',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   newPassword: {
     attr: {
@@ -148,11 +148,11 @@ export const inputsFixture = {
       type: 'password',
       value: 'password',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
   repeatNewPassword: {
     attr: {
@@ -161,11 +161,11 @@ export const inputsFixture = {
       type: 'password',
       value: 'password',
     },
-    events: {
-      click: (e) => {
-        console.log('click', e.target);
-      },
-    },
+    // events: {
+    //   click: (e) => {
+    //     console.log('click', e.target);
+    //   },
+    // },
   },
 };
 
