@@ -9,7 +9,8 @@ import './style.scss';
 
 const template = `
   <span class={{{spanClass}}}>{{{value}}}</span>
-  {{{input}}}`;
+  {{{input}}}
+  <span class="tooltip-error"></span>`;
 
 class Wrap extends Block {
   render() {

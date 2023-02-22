@@ -10,9 +10,9 @@ phone — от 10 до 15 символов, состоит из цифр, мож
 message — не должно быть пустым.
 */
 
-export const name: RegExp = /^[A-ZА-Я]{l}[a-zа-я-]{0,254}$/;
-export const login: RegExp = /(?=^.{3,20}$)^(?=.*[a-zA-Z0-9-_])(?=.*[a-zA-Z]).*$/;
-export const email: RegExp = /^[a-zA-Z0-9-_]+@[a-zA-Z_]+?\.[a-zA-Z]{1,}$/;
-export const password: RegExp = /(?=^.{8,40}$)^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
-export const phone: RegExp = /^[0-9+]{1}[0-9]{9,14}$/;
-export const message: RegExp = /^.{1,}$/;
+export const regexpName: RegExp = /^[A-ZА-Я]{1}[a-zа-я-]{0,254}$/;
+export const regexpLogin: RegExp = /(?=^.{3,20}$)^(?=.*[a-zA-Z0-9-_])(?=.*[a-zA-Z]).*$/;
+export const regexpEmail: RegExp = /^[a-zA-Z0-9-_]+@[a-zA-Z_]+?\.[a-zA-Z]{1,}$/;
+export const regexpPassword: RegExp = /(?=^.{8,40}$)^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
+export const regexpPhone: RegExp = /^[0-9+]{1}[0-9]{9,14}$/;
+export const regexpMessage: RegExp = /^.{1,}$/;

@@ -1,17 +1,5 @@
 import Block from '../../utils/Block';
-
-const template = `
-  <h1 class="signin-page__title">Вход</h1>
-  <form class="signin-form">
-    <div class="form__inputs-block">
-      {{{ login }}}
-      {{{ password }}}
-    </div>
-    <div class="signin-form__buttons form__buttons">
-      {{{ signIn }}}
-      {{{ signUp }}}
-    </div>
-    </form>`;
+import template from './template';
 
 class SignIn extends Block {
   render() {
@@ -19,8 +7,15 @@ class SignIn extends Block {
   }
 
   _addEvents(): void {
-    super._addEvents();
-    this._element.q
+    this._element?.querySelectorAll('input').forEach((input) => {
+      input.addEventListener('focus', this._props.events.focus);
+    });
+    this._element?.querySelectorAll('input').forEach((input) => {
+      input.addEventListener('blur', this._props.events.blur);
+    });
+    this._element?.querySelectorAll('button').forEach((button) => {
+      button.addEventListener('click', this._props.events.click);
+    });
   }
 }
 

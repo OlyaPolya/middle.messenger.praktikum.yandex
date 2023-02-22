@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 
 const template = `
   <h1 class="signup-page__title">Регистрация</h1>
-  <form class="signup-form">
+  <form class="signup-form form">
     <div class="form__inputs-block">
       {{{email}}}
       {{{login}}}

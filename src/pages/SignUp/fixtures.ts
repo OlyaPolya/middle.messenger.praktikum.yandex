@@ -111,7 +111,7 @@ const inputsFixture = {
   repeatPassword: {
     attr: {
       class: 'form-input input password-input signup-form__password-input',
-      name: 'password',
+      name: 'repeatPassword',
       type: 'password',
       value: 'ivanivanov',
     },

@@ -7,7 +7,7 @@ const template = `
     </div>
     <div class="header__username">Иван</div>
   </div>
-  <form class="user-page-form">
+  <form class="user-page-form form">
     <div class="user-page-form__data">
       {{{email}}}
       {{{login}}}

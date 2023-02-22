@@ -33,7 +33,7 @@ export const inputsFixture = {
       class: 'form-input login-input signin-form__username-input',
       name: 'login',
       type: 'text',
-      value: 'ivanivanov',
+      value: 'Ivanivanov',
     },
     // events: {
     //   click: (e) => {
