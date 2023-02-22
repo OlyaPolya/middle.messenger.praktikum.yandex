@@ -9,7 +9,6 @@ enum METHODS {
 type Options = {
   method: METHODS;
   data?: any;
-  timeout?: number;
 } | {};
 
 function queryStringify(data) {
@@ -28,32 +27,27 @@ function queryStringify(data) {
 class HTTPTransport {
   get = (url: string, options: Options): Promise<XMLHttpRequest> => this.request(
     url,
-    { ...options, method: METHODS.GET },
-    options.timeout
+    { ...options, method: METHODS.GET }
   );
 
   post = (url: string, options: Options): Promise<XMLHttpRequest> => this.request(
     url,
-    { ...options, method: METHODS.POST },
-    options.timeout
+    { ...options, method: METHODS.POST }
   );
 
   put = (url: string, options: Options): Promise<XMLHttpRequest> => this.request(
     url,
-    { ...options, method: METHODS.PUT },
-    options.timeout
+    { ...options, method: METHODS.PUT }
   );
 
   delete = (url: string, options: Options): Promise<XMLHttpRequest> => this.request(
     url,
-    { ...options, method: METHODS.DELETE },
-    options.timeout
+    { ...options, method: METHODS.DELETE }
   );
 
   request = (
     url: string,
-    options = {},
-    timeout = 5000
+    options = {}
   ): Promise<XMLHttpRequest> => {
     const { headers = {}, method, data } = options;
 
@@ -78,9 +72,6 @@ class HTTPTransport {
 
       xhr.onabort = reject;
       xhr.onerror = reject;
-
-      xhr.timeout = timeout;
-      xhr.ontimeout = reject;
 
       if (isGet || !data) {
         xhr.send();

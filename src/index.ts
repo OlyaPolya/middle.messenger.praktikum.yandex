@@ -10,15 +10,18 @@ import SignUpPage from './pages/SignUp/index';
 import renderDOM from './utils/renderDom';
 import ChatPage from './pages/Chat/index';
 
-import request from './utils/HTTPTransport';
-
-// const SignInPageComponent = {
-//   render: () => renderDOM('.main', SignInPage),
-// };
+import HTTPTransport from './utils/HTTPTransport';
 
 const SignInPageComponent = {
-  render: () => request('https://ya.ru/'),
+  render: () => renderDOM('.main', SignInPage),
 };
+
+// const SignInPageComponent = {
+//   render: () =>
+//     new HTTPTransport()
+//       .get('http://jservice.io/api/random?count=1', {})
+//       .then((data) => console.log(data.responseText)),
+// };
 
 const SignUpPageComponent = {
   render: () => renderDOM('.main', SignUpPage),
@@ -73,15 +76,14 @@ function findComponentByPath(
   }[]
 ) {
   return (
-    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) ||
-    undefined
+    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm')))
+    || undefined
   );
 }
 
 const router = () => {
   const path = parseLocation();
-  const { component = RequestErrorPageComponent } =
-    findComponentByPath(path, routes) || {};
+  const { component = RequestErrorPageComponent } = findComponentByPath(path, routes) || {};
   component.render();
 };
 

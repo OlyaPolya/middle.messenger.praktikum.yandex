@@ -17,6 +17,11 @@ class SignIn extends Block {
   render() {
     return this.compile(template);
   }
+
+  _addEvents(): void {
+    super._addEvents();
+    this._element.q
+  }
 }
 
 export default SignIn;

@@ -17,6 +17,9 @@ const SignInPage = new SignIn('div', {
   attr: {
     class: 'signin-page',
   },
+  events: {
+
+  }
 });
 
 export default SignInPage;
