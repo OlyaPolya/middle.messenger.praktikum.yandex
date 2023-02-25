@@ -52,18 +52,11 @@
     justify-content: center;
     min-height: 21px;
 
-    &:not(:last-child):after {
-      position: absolute;
-      content: "";
-      width: 510px;
-      height: 1px;
-      bottom: 0;
-      border-bottom: 1px solid $grey-color-border;
-    }
   }
 }
 
 .data__field {
+  position: relative;
   display: flex;
   justify-content: space-between;
   height: 34px;
@@ -88,8 +81,19 @@
     border: none;
     color: $grey-color;
     text-align: end;
+
+    &.error {
+      color: $red-color-input;
+    }
+  }
+
+  &>.tooltip-error {
+  left: 80%;
+  bottom: -4px;
   }
 }
+
+
 
 .header {
   &__user-image {

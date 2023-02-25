@@ -1,105 +1,82 @@
-import Wrap from '../../components/Input/Wrap';
-import { buttonsFixture, labelFixture } from './fixtures';
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import './style.scss';
-import Button from '../../components/Button/Button';
+import { ProfileButtons, SaveButton } from './buttons/index';
+import { ProfileInputs, PasswordInputs } from './inputs/index';
 import Profile from './Profile';
+import isValidField from '../../utils/validate/isValidField';
+import validateForm from '../../utils/validate/validateForm';
 
-const email = new Wrap('div', labelFixture.email);
-const login = new Wrap('div', labelFixture.login);
-const firstName = new Wrap('div', labelFixture.firstName);
-const secondName = new Wrap('div', labelFixture.secondName);
-const displayName = new Wrap('div', labelFixture.displayName);
-const phone = new Wrap('div', labelFixture.phone);
-const oldPassword = new Wrap('div', labelFixture.oldPassword);
-const newPassword = new Wrap('div', labelFixture.newPassword);
-const repeatNewPassword = new Wrap('div', labelFixture.repeatNewPassword);
-const changeData = new Button('button', buttonsFixture.changeData);
-const changePassword = new Button('button', buttonsFixture.changePassword);
-const signOut = new Button('button', buttonsFixture.signOut);
-const save = new Button('button', buttonsFixture.save);
+type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+};
 
-export const ProfilePage = new Profile('div', {
-  email,
-  login,
-  firstName,
-  secondName,
-  displayName,
-  phone,
-  changeData,
-  changePassword,
-  signOut,
+const ProfilePage = new Profile('div', {
+  inputs: ProfileInputs,
+  buttons: ProfileButtons,
   attr: {
     class: 'user-page',
   },
   events: {
     focus: (e: Event) => {
-      console.log('focus 1', e.target);
-      // isValidField(e.target as HTMLInputElement);
+      isValidField(e.target as HTMLInputElement);
     },
     blur: (e: Event) => {
-      console.log('blur 1', e.target);
-      // isValidField(e.target as HTMLInputElement);
+      isValidField(e.target as HTMLInputElement);
     },
-    click: (e: Event) => {
-      console.log(e.target);
+    click: (e: HTMLElementEvent<HTMLButtonElement>) => {
+      if (e.target) {
+        handleClick(e.target);
+      }
       e.preventDefault();
       e.stopPropagation();
-      // validateForm();
     },
   },
 });
 
-export const SettingsPage = new Profile('div', {
-  email,
-  login,
-  firstName,
-  secondName,
-  displayName,
-  phone,
-  save,
-  attr: {
-    class: 'user-page',
-  },
-  events: {
-    focus: (e: Event) => {
-      console.log('focus 2', e.target);
-      // isValidField(e.target as HTMLInputElement);
-    },
-    blur: (e: Event) => {
-      console.log('blur 2', e.target);
-      // isValidField(e.target as HTMLInputElement);
-    },
-    click: (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
-      console.log(e.target);
-      // validateForm();
-    },
-  },
-});
+export default ProfilePage;
 
-export const SecurityPage = new Profile('div', {
-  oldPassword,
-  newPassword,
-  repeatNewPassword,
-  save,
-  attr: {
-    class: 'user-page',
-  },
-  events: {
-    focus: (e: Event) => {
-      console.log('focus 3', e.target);
-      // isValidField(e.target as HTMLInputElement);
-    },
-    blur: (e: Event) => {
-      console.log('blur 3', e.target);
-      // isValidField(e.target as HTMLInputElement);
-    },
-    click: (e: Event) => {
-      console.log(e.target);
-      e.preventDefault();
-      e.stopPropagation();
-      // validateForm();
-    },
-  },
-});
+function displayProfileChangeForm() {
+  ProfilePage.setProps({
+    buttons: SaveButton,
+  });
+  const allInputs = document.querySelectorAll('.data__field__body');
+  if (allInputs) {
+    allInputs.forEach((input) => {
+      input.removeAttribute('disabled');
+    });
+  }
+}
+
+function displayProfileForm() {
+  ProfilePage.setProps({
+    inputs: ProfileInputs,
+    buttons: ProfileButtons,
+  });
+  const allInputs = document.querySelectorAll('.data__field__body');
+  if (allInputs) {
+    allInputs.forEach((input) => {
+      input.setAttribute('disabled', 'disabled');
+    });
+  }
+}
+
+function displayPasswordChangeForm() {
+  ProfilePage.setProps({
+    inputs: PasswordInputs,
+    buttons: SaveButton,
+  });
+}
+
+function handleClick(button: HTMLButtonElement) {
+  if (button.classList.contains('button__changeData')) {
+    displayProfileChangeForm();
+  }
+  if (button.classList.contains('button__save')) {
+    if (validateForm()) {
+      displayProfileForm();
+    }
+  }
+  if (button.classList.contains('button__changePassword')) {
+    displayPasswordChangeForm();
+  }
+}

@@ -1,16 +1,15 @@
 import './style.scss';
-import {
-  ProfilePage,
-  SettingsPage,
-  SecurityPage,
-} from './pages/Profile/index';
 import { ServerError, RequestError } from './pages/Error/index';
 import SignInPage from './pages/SignIn/index';
 import SignUpPage from './pages/SignUp/index';
 import renderDOM from './utils/renderDom';
 import ChatPage from './pages/Chat/index';
-
-import HTTPTransport from './utils/HTTPTransport';
+import SecurityPage from './pages/User/Security/index';
+import SettingsPage from './pages/User/Settings/index';
+import ProfilePage from './pages/Profile/index';
+import { labelFixture } from './pages/Profile/fixtures';
+import Wrap from './components/Input/Wrap';
+import Input from './components/Input/Input';
 
 const SignInPageComponent = {
   render: () => renderDOM('.main', SignInPage),
@@ -32,16 +31,12 @@ const ChatPageComponent = {
 };
 
 const ProfilePageComponent = {
-  render: () => renderDOM('.main', ProfilePage),
+  render: () => {
+    renderDOM('.main', ProfilePage);
+    console.log('Работают кнопки "Изменить данные" и "Изменить пароль"');
+  },
 };
 
-const SecurityPageComponent = {
-  render: () => renderDOM('.main', SecurityPage),
-};
-
-const SettingsPageComponent = {
-  render: () => renderDOM('.main', SettingsPage),
-};
 
 const RequestErrorPageComponent = {
   render: () => renderDOM('.main', RequestError),
@@ -56,8 +51,6 @@ const routes = [
   { path: '/signup', component: SignUpPageComponent },
   { path: '/chat', component: ChatPageComponent },
   { path: '/profile', component: ProfilePageComponent },
-  { path: '/security', component: SecurityPageComponent },
-  { path: '/settings', component: SettingsPageComponent },
   { path: '/404', component: RequestErrorPageComponent },
   { path: '/500', component: ServerErrorPageComponent },
 ];
@@ -76,14 +69,15 @@ function findComponentByPath(
   }[]
 ) {
   return (
-    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm')))
-    || undefined
+    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) ||
+    undefined
   );
 }
 
 const router = () => {
   const path = parseLocation();
-  const { component = RequestErrorPageComponent } = findComponentByPath(path, routes) || {};
+  const { component = RequestErrorPageComponent } =
+    findComponentByPath(path, routes) || {};
   component.render();
 };
 

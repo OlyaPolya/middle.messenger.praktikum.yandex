@@ -8,23 +8,8 @@ const template = `
     <div class="header__username">Иван</div>
   </div>
   <form class="user-page-form form">
-    <div class="user-page-form__data">
-      {{{email}}}
-      {{{login}}}
-      {{{firstName}}}
-      {{{secondName}}}
-      {{{displayName}}}
-      {{{phone}}}
-      {{{oldPassword}}}
-      {{{newPassword}}}
-      {{{repeatNewPassword}}}
-    </div>
-    <div class="user-page-form__buttons">
-      {{{changeData}}}
-      {{{changePassword}}}
-      {{{signOut}}}
-      {{{save}}}
-    </div>
+  {{{inputs}}}
+  {{{buttons}}}
   </form>
  </div>
 `;

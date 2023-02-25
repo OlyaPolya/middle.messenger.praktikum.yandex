@@ -1,12 +1,12 @@
 @import '../../style.scss';
 
 .label {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
   height: 36px;
   width: 100%;
-  position: relative;
 
   &-input__subtitle {
     font-family: $font;
@@ -39,7 +39,7 @@
       display: none;
       position: absolute;
       left: 0;
-      bottom: -15px;
+      bottom: -12px;
       color: $red-color-input;
       font-size: 8px;
 
@@ -48,7 +48,13 @@
       }
  }
 
- .error {
+ .error{
     color: $red-color-input;
  }
+
+ .data__field__body:disabled {
+   background-color: inherit;
+  }
+
+
 

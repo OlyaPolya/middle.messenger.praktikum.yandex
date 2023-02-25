@@ -4,50 +4,33 @@ export const buttonsFixture = {
   changeData: {
     textContent: 'Изменить данные',
     attr: {
-      class: 'user-page-form__button  button__clear',
+      class: 'user-page-form__button  button__clear button__changeData',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
+
   },
   changePassword: {
     textContent: 'Изменить пароль',
     attr: {
-      class: 'user-page-form__button  button__clear',
+      class: 'user-page-form__button  button__clear button__changePassword',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
+
   },
   signOut: {
     textContent: 'Выйти',
     attr: {
-      class: 'user-page-form__button  button__red',
+      class: 'user-page-form__button  button__red button__signOut',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
+
   },
   save: {
     textContent: 'Сохранить',
     attr: {
-      class: 'user-page-form__button  button__blue',
+      class: 'user-page-form__button  button__blue button__save',
       type: 'submit',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
+
   },
 };
-
 
 export const inputsFixture = {
   email: {
@@ -56,12 +39,8 @@ export const inputsFixture = {
       name: 'email',
       type: 'text',
       value: 'pochta@yandex.ru',
+      disabled: 'disabled',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   login: {
     attr: {
@@ -69,12 +48,8 @@ export const inputsFixture = {
       name: 'login',
       type: 'text',
       value: 'ivanivanov',
+      disabled: 'disabled',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   firstName: {
     attr: {
@@ -82,12 +57,8 @@ export const inputsFixture = {
       name: 'first_name',
       type: 'text',
       value: 'Иван',
+      disabled: 'disabled',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   secondName: {
     attr: {
@@ -95,12 +66,8 @@ export const inputsFixture = {
       name: 'second_name',
       type: 'text',
       value: 'Иванов',
+      disabled: 'disabled',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   displayName: {
     attr: {
@@ -108,12 +75,8 @@ export const inputsFixture = {
       name: 'display_name',
       type: 'text',
       value: 'Иван',
+      disabled: 'disabled',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   phone: {
     attr: {
@@ -121,51 +84,34 @@ export const inputsFixture = {
       name: 'phone',
       type: 'phone',
       value: '+7(909)9673030',
+      disabled: 'disabled',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   oldPassword: {
     attr: {
+      id: 'oldPassword',
       class: 'data__field__body',
       name: 'oldPassword',
       type: 'password',
-      value: 'password',
+      value: 'P1assword',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   newPassword: {
     attr: {
+      id: 'newPassword',
       class: 'data__field__body',
       name: 'password',
       type: 'password',
-      value: 'password',
+      value: 'P1assword',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   repeatNewPassword: {
     attr: {
       class: 'data__field__body',
-      name: 'newPassword',
+      name: 'repeatNewPassword',
       type: 'password',
-      value: 'password',
+      value: 'P1assword',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
 };
 
@@ -243,119 +189,3 @@ export const labelFixture = {
     },
   },
 };
-
-
-
-/* SECURITY page*/
-/* PROFILE and SETTINGS pages*/
-
-
-
-
-
-
-
-// export const buttonsProfile = [
-//   {
-//     // button: "changeData",
-//     // classes: "user-page-form__button  button__clear",
-//     // value: "Изменить данные",
-//   },
-//   {
-//     button: "changePassword",
-//     classes: "user-page-form__button  button__clear",
-//     value: "Изменить пароль",
-//   },
-//   {
-//     button: "signOut",
-//     classes: "user-page-form__button  button__red",
-//     value: "Выйти",
-//   },
-// ];
-
-// export const buttonsSaveProfile = [
-//   {
-//     button: "save",
-//     classes: "user-page-form__button  button__blue",
-//     value: "Сохранить",
-//     type: "type='submit'",
-//   },
-// ];
-
-// export const fieldsProfile = [
-//   {
-    // inputName: "email",
-    // fieldClasses: "data__field",
-    // fieldNameValue: "Почта",
-    // inputClasses: "data__field__email",
-    // userData: "pochta@yandex.ru",
-    // type: "text,",
-  // },
-  // {
-  //   inputName: "login",
-  //   fieldClasses: "data__field",
-  //   fieldNameValue: "Логин",
-  //   inputClasses: "data__field__email",
-  //   userData: "ivanivanov",
-  //   type: "text,",
-  // },
-  // {
-    // inputName: "first_name",
-    // fieldClasses: "data__field",
-    // fieldNameValue: "Имя",
-    // inputClasses: "data__field__email",
-    // userData: "Иван",
-    // type: "text,",
-  // },
-  // {
-    // inputName: "second_name",
-    // fieldClasses: "data__field",
-    // fieldNameValue: "Фамилия",
-    // inputClasses: "data__field__email",
-    // userData: "Иванов",
-    // type: "text,",
-  // },
-  // {
-  //   inputName: "display_name",
-  //   fieldClasses: "data__field",
-  //   fieldNameValue: "Имя в чате",
-  //   inputClasses: "data__field__email",
-  //   userData: "Иван",
-  //   type: "text,",
-  // },
-//   {
-//     inputName: "phone",
-//     fieldClasses: "data__field",
-//     fieldNameValue: "Телефон",
-//     inputClasses: "data__field__email",
-//     userData: "+7(909)-967-30-30",
-//     type: "phone",
-//   },
-// ];
-
-// export const fieldsPasswordProfile = [
-//   {
-//     inputName: "oldPassword",
-//     fieldClasses: "data__field",
-//     fieldNameValue: "Старый пароль",
-//     inputClasses: "data__field__email",
-//     userData: "password",
-//     type: "password",
-  // },
-  // {
-  //   inputName: "newPassword",
-  //   fieldClasses: "data__field",
-  //   fieldNameValue: "Новый пароль",
-  //   inputClasses: "data__field__email",
-  //   userData: "password",
-  //   type: "password",
-//   // },
-//   {
-//     inputName: "email",
-//     fieldClasses: "data__field",
-//     fieldNameValue: "Повторите новый пароль",
-//     inputClasses: "data__field__email",
-//     userData: "password",
-//     type: "password",
-//   },
-// ];

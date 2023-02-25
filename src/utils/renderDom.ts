@@ -6,9 +6,8 @@ export default function renderDOM(selector: string, block) {
       root.removeChild(root.firstChild);
     }
     root.appendChild(block.getContent());
+    block.dispatchComponentDidMount();
   }
-
-  block.dispatchComponentDidMount();
 
   return root;
 }

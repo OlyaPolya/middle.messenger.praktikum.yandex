@@ -26,90 +26,75 @@ function hideError(item: HTMLElement) {
 }
 
 function isMatchPassword(item: HTMLInputElement): boolean {
-  const originPassword = document.querySelector('input[name="password"]') as HTMLInputElement;
-  console.log('НАСТОЯЩИЙ ПАРОЛЬ', originPassword);
+  const originPassword = document.querySelector('#newPassword') as HTMLInputElement;
   if (originPassword) {
     return originPassword.value === item.value;
   }
   return false;
 }
 
+function isPassRegexp(regexpRule: RegExp, field: HTMLInputElement) {
+  if (!regexpRule.test(field.value)) {
+    showError(field);
+    return false;
+  }
+  hideError(field);
+  return true;
+}
+
 function isValidField(item: HTMLInputElement): boolean {
-  console.log(item.value);
   switch (item.name) {
     case 'first_name':
     case 'second_name': {
-      if (!regexpName.test(item.value)) {
-        showError(item);
-        return false;
-      }
-      hideError(item);
-      return true;
-
+      return isPassRegexp(regexpName, item);
       break;
     }
     case 'password': {
-      if (!regexpPassword.test(item.value)) {
-        showError(item);
-        return false;
-      }
-      hideError(item);
-      return true;
-
+      return isPassRegexp(regexpPassword, item);
       break;
     }
     case 'email': {
-      if (!regexpEmail.test(item.value)) {
-        showError(item);
-        return false;
-      }
-      hideError(item);
-      return true;
-
+      return isPassRegexp(regexpEmail, item);
       break;
     }
     case 'login': {
-      if (!regexpLogin.test(item.value)) {
-        showError(item);
-        return false;
-      }
-      hideError(item);
-      return true;
-
+      return isPassRegexp(regexpLogin, item);
       break;
     }
     case 'phone': {
-      if (!regexpPhone.test(item.value)) {
-        showError(item);
-        return false;
-      }
-      hideError(item);
-      return true;
-
+      return isPassRegexp(regexpPhone, item);
       break;
     }
-    case 'regexpMessage': {
-      if (!regexpMessage.test(item.value)) {
-        showError(item);
-        return false;
-      }
-      hideError(item);
-      return true;
-
+    case 'message': {
+      return isPassRegexp(regexpMessage, item);
       break;
     }
-    case 'repeatPassword': {
-      if (!isMatchPassword(item)) {
-        showError(item, 'Пароли не совпадают');
-        return false;
-      }
-      hideError(item);
-      return true;
+    case 'oldPassword': {
+      return isPassRegexp(regexpPassword, item);
+      break;
+    }
+    case 'repeatNewPassword': {
+      const newPassword = document.querySelector('#newPassword');
 
+      if (newPassword) {
+        if (
+          !isMatchPassword(item)
+          || newPassword.innerHTML !== item.innerHTML
+        ) {
+          showError(item, 'Пароли не совпадают');
+          return false;
+        }
+        hideError(item);
+        return true;
+      }
+      return true;
+      break;
+    }
+    case 'display_name': {
+      return isPassRegexp(regexpMessage, item);
       break;
     }
     default:
-      console.log('Неизвестное значение');
       return false;
   }
 }

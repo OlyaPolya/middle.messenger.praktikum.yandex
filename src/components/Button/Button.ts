@@ -1,7 +1,6 @@
 import Block from '../../utils/Block';
 import './style.scss';
-
-export const template = '{{{ textContent }}}';
+import template from './template';
 
 class Button extends Block {
   render() {
