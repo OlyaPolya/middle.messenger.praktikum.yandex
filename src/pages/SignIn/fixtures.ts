@@ -8,22 +8,12 @@ export const buttonsFixture: Button = {
       class: 'signin-form__submit button  button__blue',
       type: 'submit',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   signUp: {
     textContent: 'Нет аккаунта?',
     attr: {
       class: 'signin-form__signup button  button__clear',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
 };
 
@@ -35,11 +25,6 @@ export const inputsFixture = {
       type: 'text',
       value: 'Ivanivanov',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
   password: {
     attr: {
@@ -48,11 +33,6 @@ export const inputsFixture = {
       type: 'password',
       value: 'ivanivanov',
     },
-    // events: {
-    //   click: (e) => {
-    //     console.log('click', e.target);
-    //   },
-    // },
   },
 };
 

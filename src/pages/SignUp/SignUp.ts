@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../services/Block';
 
 const template = `
   <h1 class="signup-page__title">Регистрация</h1>

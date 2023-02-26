@@ -1,5 +1,5 @@
 import './style.scss';
-import Block from '../../utils/Block';
+import Block from '../../services/Block';
 import template from './template';
 
 class Error extends Block {

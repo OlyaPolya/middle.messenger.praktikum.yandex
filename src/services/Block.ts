@@ -41,7 +41,10 @@ class Block {
   private _registerEvents() {
     this._eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
 
-    this._eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
+    this._eventBus.on(
+      Block.EVENTS.FLOW_CDM,
+      this._componentDidMount.bind(this)
+    );
     this._eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     this._eventBus.on(
       Block.EVENTS.FLOW_CDU,
@@ -65,7 +68,9 @@ class Block {
 
   _componentDidMount() {
     this.componentDidMount();
-    Object.values(this._children).forEach((child) => child.dispatchComponentDidMount());
+    Object.values(this._children).forEach((child) =>
+      child.dispatchComponentDidMount()
+    );
   }
 
   componentDidMount() {}
@@ -204,7 +209,7 @@ class Block {
 
   // чтобы  работали events, переданные в компоненты . Мы создаем заглушку, которая будет потом заменяться элементом с событиями
   compile(template: string, props?: Record<string, any> | undefined) {
-    if (typeof (props) === 'undefined') {
+    if (typeof props === 'undefined') {
       props = this._props;
     }
 

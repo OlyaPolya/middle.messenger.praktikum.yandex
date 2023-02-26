@@ -40,6 +40,8 @@ export const inputsFixture = {
       type: 'text',
       value: 'pochta@yandex.ru',
       disabled: 'disabled',
+      'data-tooltip':
+        'Латиница, может включать цифры и спецсимволы вроде дефиса, обязательно должна быть «собака» (@)',
     },
   },
   login: {
@@ -49,6 +51,8 @@ export const inputsFixture = {
       type: 'text',
       value: 'ivanivanov',
       disabled: 'disabled',
+      'data-tooltip':
+        'От 3 до 20 символов, латиница, может содержать цифры, но не состоять из них, без пробелов, без спецсимволов (допустимы дефис и нижнее подчёркивание)',
     },
   },
   firstName: {
@@ -58,6 +62,8 @@ export const inputsFixture = {
       type: 'text',
       value: 'Иван',
       disabled: 'disabled',
+      'data-tooltip':
+        'Латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (допустим только дефис)',
     },
   },
   secondName: {
@@ -67,6 +73,8 @@ export const inputsFixture = {
       type: 'text',
       value: 'Иванов',
       disabled: 'disabled',
+      'data-tooltip':
+        'Латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (допустим только дефис)',
     },
   },
   displayName: {
@@ -76,6 +84,7 @@ export const inputsFixture = {
       type: 'text',
       value: 'Иван',
       disabled: 'disabled',
+      'data-tooltip': 'Не должно быть пустым',
     },
   },
   phone: {
@@ -85,6 +94,8 @@ export const inputsFixture = {
       type: 'phone',
       value: '+7(909)9673030',
       disabled: 'disabled',
+      'data-tooltip':
+        'От 10 до 15 символов, состоит из цифр, может начинается с плюса',
     },
   },
   oldPassword: {
@@ -94,6 +105,8 @@ export const inputsFixture = {
       name: 'oldPassword',
       type: 'password',
       value: 'P1assword',
+      'data-tooltip':
+        'Введите старый пароль',
     },
   },
   newPassword: {
@@ -103,6 +116,8 @@ export const inputsFixture = {
       name: 'password',
       type: 'password',
       value: 'P1assword',
+      'data-tooltip':
+        'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
     },
   },
   repeatNewPassword: {
@@ -111,6 +126,7 @@ export const inputsFixture = {
       name: 'repeatNewPassword',
       type: 'password',
       value: 'P1assword',
+      'data-tooltip': 'Повторите пароль',
     },
   },
 };
@@ -162,6 +178,7 @@ export const labelFixture = {
     input: new Input('input', inputsFixture.login),
     attr: {
       class: 'data__field',
+
     },
   },
   repeatNewPassword: {

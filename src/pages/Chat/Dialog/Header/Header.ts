@@ -1,5 +1,5 @@
 import template from './template';
-import Block from '../../../../utils/Block';
+import Block from '../../../../services/Block';
 
 class Header extends Block {
   render(): string {
