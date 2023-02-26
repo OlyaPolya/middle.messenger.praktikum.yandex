@@ -1,4 +1,6 @@
-export default function renderDOM(selector: string, block) {
+import Block from '../services/Block';
+
+export default function renderDOM(selector: string, block: Block) {
   const root: Element | null = document.querySelector(selector);
 
   if (root) {

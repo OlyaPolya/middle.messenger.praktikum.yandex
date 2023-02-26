@@ -10,7 +10,7 @@ const displayName = new Wrap('label', labelFixture.displayName);
 const phone = new Wrap('label', labelFixture.phone);
 const oldPassword = new Wrap('div', labelFixture.oldPassword);
 const newPassword = new Wrap('div', labelFixture.newPassword);
-const repeatNewPassword = new Wrap('div', labelFixture.repeatNewPassword);
+const repeatPassword = new Wrap('div', labelFixture.repeatPassword);
 
 export const ProfileInputs = new Inputs('div', {
   email,
@@ -27,7 +27,7 @@ export const ProfileInputs = new Inputs('div', {
 export const PasswordInputs = new Inputs('div', {
   oldPassword,
   newPassword,
-  repeatNewPassword,
+  repeatPassword,
   attr: {
     class: 'user-page-form__data',
   },

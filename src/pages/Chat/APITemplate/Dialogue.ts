@@ -17,7 +17,6 @@ const dialog = [
       media: '',
       thumbnail: '',
       file_name: '',
-      file_size: 0,
     },
   },
   {
@@ -42,7 +41,6 @@ const dialog = [
       media: '',
       thumbnail: '',
       file_name: '',
-      file_size: 0,
     },
   },
   {
@@ -67,7 +65,6 @@ const dialog = [
       media: 'https://cdn-icons-png.flaticon.com/256/7603/7603200.png',
       thumbnail: '',
       file_name: 'image',
-      file_size: 3,
     },
   },
 ];

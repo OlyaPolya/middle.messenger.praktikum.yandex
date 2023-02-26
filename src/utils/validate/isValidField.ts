@@ -26,9 +26,11 @@ function hideError(item: HTMLElement) {
 }
 
 function isMatchPassword(item: HTMLInputElement): boolean {
-  const originPassword = document.querySelector('#newPassword') as HTMLInputElement;
-  if (originPassword) {
-    return originPassword.value === item.value;
+  const newPassword = document.querySelector(
+    "input[name='password']"
+  ) as HTMLInputElement;
+  if (newPassword) {
+    return newPassword.value === item.value;
   }
   return false;
 }
@@ -73,20 +75,12 @@ function isValidField(item: HTMLInputElement): boolean {
       return isPassRegexp(regexpPassword, item);
       break;
     }
-    case 'repeatNewPassword': {
-      const newPassword = document.querySelector('#newPassword');
-
-      if (newPassword) {
-        if (
-          !isMatchPassword(item)
-          || newPassword.innerHTML !== item.innerHTML
-        ) {
-          showError(item, 'Пароли не совпадают');
-          return false;
-        }
-        hideError(item);
-        return true;
+    case 'repeatPassword': {
+      if (!isMatchPassword(item)) {
+        showError(item, 'Пароли не совпадают');
+        return false;
       }
+      hideError(item);
       return true;
       break;
     }

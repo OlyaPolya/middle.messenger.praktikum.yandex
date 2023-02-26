@@ -92,7 +92,7 @@ export const inputsFixture = {
       class: 'data__field__body',
       name: 'phone',
       type: 'phone',
-      value: '+7(909)9673030',
+      value: '+79099673030',
       disabled: 'disabled',
       'data-tooltip':
         'От 10 до 15 символов, состоит из цифр, может начинается с плюса',
@@ -100,7 +100,6 @@ export const inputsFixture = {
   },
   oldPassword: {
     attr: {
-      id: 'oldPassword',
       class: 'data__field__body',
       name: 'oldPassword',
       type: 'password',
@@ -111,7 +110,6 @@ export const inputsFixture = {
   },
   newPassword: {
     attr: {
-      id: 'newPassword',
       class: 'data__field__body',
       name: 'password',
       type: 'password',
@@ -120,10 +118,10 @@ export const inputsFixture = {
         'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
     },
   },
-  repeatNewPassword: {
+  repeatPassword: {
     attr: {
       class: 'data__field__body',
-      name: 'repeatNewPassword',
+      name: 'repeatPassword',
       type: 'password',
       value: 'P1assword',
       'data-tooltip': 'Повторите пароль',
@@ -181,10 +179,10 @@ export const labelFixture = {
 
     },
   },
-  repeatNewPassword: {
+  repeatPassword: {
     spanClass: 'data__field-title',
     value: 'Повторите новый пароль',
-    input: new Input('input', inputsFixture.repeatNewPassword),
+    input: new Input('input', inputsFixture.repeatPassword),
     attr: {
       class: 'data__field',
     },

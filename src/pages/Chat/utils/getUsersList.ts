@@ -1,7 +1,8 @@
 import receiveDate from '../../../utils/receiveDate';
+import { ChatsList, User } from '../types';
 
-function getUsersList(list) {
-  const users = [];
+function getUsersList(list: ChatsList) {
+  const users: User[] = [];
   const CURRENT_USER_LOGIN_TMP = 'currentUserLogin';
 
   list.forEach((item) => {

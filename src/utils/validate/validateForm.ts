@@ -12,13 +12,13 @@ function validateForm(): boolean {
       return true;
     });
 
+    inputsArray.forEach((input) => isValidField(input));
     const isValid = inputsArray.every((input) => isValidField(input) === true);
 
     type FormData = {
       [key: string]: string;
     };
     const formData: FormData = {};
-
     if (isValid) {
       inputsArray.forEach((input) => {
         formData[`${input.name}`] = input.value;

@@ -1,9 +1,10 @@
 import receiveDate from '../../../utils/receiveDate';
+import { DialogList, Message } from '../types';
 
 const CURRENT_USER_TEMP_ID = '86a0caef-41ec-49ac-814b-b27da2cea267';
 
-function getMessagesList(list) {
-  const messages = [];
+function getMessagesList(list: DialogList) {
+  const messages: Message[] = [];
 
   list.forEach((item) => {
     const messageBody = item.message.text.length > 0

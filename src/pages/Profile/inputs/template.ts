@@ -7,7 +7,7 @@ const template = `
   {{{phone}}}
   {{{oldPassword}}}
   {{{newPassword}}}
-  {{{repeatNewPassword}}}
+  {{{repeatPassword}}}
 `;
 
 export default template;

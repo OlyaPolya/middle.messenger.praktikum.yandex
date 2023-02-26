@@ -43,7 +43,7 @@ const inputsFixture = {
       class: 'form-input input username-input signup-form__username-input',
       name: 'first_name',
       type: 'text',
-      value: 'иван',
+      value: 'Иван',
       'data-tooltip':
         'Латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (допустим только дефис)',
     },
@@ -64,7 +64,7 @@ const inputsFixture = {
       class: 'form-input input phone-input signup-form__phone-input',
       name: 'phone',
       type: 'tel',
-      value: '+79099673030.',
+      value: '+79099673030',
       'data-tooltip':
         'От 10 до 15 символов, состоит из цифр, может начинается с плюса',
     },

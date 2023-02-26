@@ -31,7 +31,7 @@ export const inputsFixture = {
       class: 'form-input password-input signin-form__password-input',
       name: 'password',
       type: 'password',
-      value: 'ivanivanov',
+      value: 'I1vanivanov',
     },
   },
 };
