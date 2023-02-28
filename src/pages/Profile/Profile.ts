@@ -7,13 +7,13 @@ class Profile extends Block {
   }
 
   _addEvents(): void {
-    this._element?.querySelectorAll('input').forEach((input) => {
+    this._element.querySelectorAll('input').forEach((input) => {
       input.addEventListener('focus', this._props.events.focus);
     });
-    this._element?.querySelectorAll('input').forEach((input) => {
+    this._element.querySelectorAll('input').forEach((input) => {
       input.addEventListener('blur', this._props.events.blur);
     });
-    this._element?.querySelectorAll('button').forEach((button) => {
+    this._element.querySelectorAll('button').forEach((button) => {
       button.addEventListener('click', this._props.events.click);
     });
   }
