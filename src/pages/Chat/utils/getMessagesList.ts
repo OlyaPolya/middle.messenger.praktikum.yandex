@@ -1,4 +1,4 @@
-import receiveDate from '../../../utils/receiveDate';
+import receiveTime from '../../../utils/receiveTime';
 import { Message } from '../Dialog/Feed/types';
 import { DialogList } from '../List/types';
 
@@ -16,7 +16,7 @@ function getMessagesList(list: DialogList) {
       ? 'message-date__delivered'
       : 'message-date__delivered-not';
 
-    const time = receiveDate(item.timestamp);
+    const time = receiveTime(new Date(item.timestamp));
 
     const message = {
       recipientOrSender,

@@ -7,7 +7,7 @@ export default function renderDOM(selector: string, block: Block) {
     while (root.firstChild) {
       root.removeChild(root.firstChild);
     }
-    root.appendChild(block.getContent());
+    root.appendChild(block.getContent()!);
     block.dispatchComponentDidMount();
   }
 
