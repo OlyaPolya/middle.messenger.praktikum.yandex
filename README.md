@@ -28,3 +28,5 @@ Technologies that are currently used:
 - [Parcel](https://ru.parceljs.org/) - is a tool for automating the manual assembly of an application.
 - [Handlebars](https://handlebarsjs.com/) - template engine, tools for reuse of ready-made components.
 - [Express](https://expressjs.com/ru/) - web framework for applications Node.js
+- [ESLint]() - ESLint helps you find and fix problems with your JavaScript code. The project uses a ready-made set of rules  Airbnb.
+- [Stylelint](https://stylelint.io/) - CSS linter that helps you avoid errors and enforce conventions
