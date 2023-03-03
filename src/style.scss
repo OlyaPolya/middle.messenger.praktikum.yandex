@@ -1,20 +1,20 @@
-$font: Inter;
+$font: inter;
 $black-color: #1e1e1e;
 $blue-color: #3369f3;
-$grey-color: #999999;
+$grey-color: #999;
 $grey-color-border: #eaeaea;
 $grey-color-fields: #efefef;
 $grey-color-background: #fbfbfb;
 $grey-color-background-hover: #f5f5f5;
-$grey-color-background-message: rgba(82, 82, 82, 0.5);
-$grey-color-boxshadow: rgba(0, 0, 0, 0.14);
+$grey-color-background-message: #52525280;
+$grey-color-boxshadow: #00000024;
 $grey-color-error: #1e1e1e;
 $grey-color-recipient: #e4edfd;
 $grey-color-sender: #f8f8f8;
-$white-color: #ffffff;
+$white-color: #fff;
 $blue-color-hover: #e4edfd;
 $red-color-input: #ff2f2f;
-$red-color-button: #ff0000;
+$red-color-button: #f00;
 
 * {
   box-sizing: border-box;
@@ -77,7 +77,7 @@ html {
   right: 20px;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0px 0px 6px $grey-color-boxshadow;
+  box-shadow: 0 0 6px $grey-color-boxshadow;
   font-family: $font;
   color: $grey-color-error;
 
@@ -96,4 +96,3 @@ html {
     }
   }
 }
-

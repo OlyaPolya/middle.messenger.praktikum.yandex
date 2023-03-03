@@ -1,4 +1,4 @@
-@import "../../style.scss";
+@import "../../style";
 
 .user-page {
   display: flex;
@@ -51,49 +51,49 @@
     align-items: center;
     justify-content: center;
     min-height: 21px;
-
   }
 }
 
-.data__field {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  height: 34px;
-  border-bottom: 1px solid $grey-color-border;
-  font-size: 13px;
-  line-height: 13px;
-
-  &:last-child {
-    border-bottom: none;
-  }
-
-  &-title {
+.data {
+  &__field {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    color: $grey-color-error;
-  }
+    justify-content: space-between;
+    height: 34px;
+    border-bottom: 1px solid $grey-color-border;
+    font-size: 13px;
+    line-height: 13px;
 
-  &__email, &__body {
-    outline: none;
-    border: none;
-    color: $grey-color;
-    text-align: end;
+    &:last-child {
+      border-bottom: none;
+    }
 
-    &.error {
-      color: $red-color-input;
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: $grey-color-error;
+    }
+
+    &__email,
+    &__body {
+      outline: none;
+      border: none;
+      color: $grey-color;
+      text-align: end;
+
+      &.error {
+        color: $red-color-input;
+      }
+    }
+
+    & > .tooltip-error {
+      left: 80%;
+      bottom: -4px;
     }
   }
-
-  &>.tooltip-error {
-  left: 80%;
-  bottom: -4px;
-  }
 }
-
-
 
 .header {
   &__user-image {

@@ -1,15 +1,13 @@
-@import '../../style.scss';
+@import "../../style";
 
 .button {
   font-family: $font;
   font-style: normal;
   font-weight: 500;
-  font-weight: 500;
   font-size: 13px;
   line-height: 13px;
 
-
-  &__blue{
+  &__blue {
     width: 280px;
     height: 37px;
     border: none;
@@ -17,27 +15,27 @@
     background-color: $blue-color;
     color: $white-color;
     margin-bottom: 10px;
+
     &:hover {
-    cursor: pointer;
-  }
+      cursor: pointer;
+    }
   }
 
-  &__clear, &__red {
-    border: none;
-    background-color: inherit;
-    color: $blue-color;
-    &:hover {
-    cursor: pointer;
-  }
-  }
-
-   &__clear{
+  &__clear {
     color: $blue-color;
   }
 
   &__red {
     color: $red-color-button;
   }
+
+  &__clear,
+  &__red {
+    border: none;
+    background-color: inherit;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
-
-

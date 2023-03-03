@@ -22,10 +22,10 @@ const ChatPageComponent = {
 const ProfilePageComponent = {
   render: () => {
     renderDOM('.main', ProfilePage);
+    // eslint-disable-next-line no-console
     console.log('Работают кнопки "Изменить данные" и "Изменить пароль"');
   },
 };
-
 
 const RequestErrorPageComponent = {
   render: () => renderDOM('.main', RequestError),
@@ -50,23 +50,16 @@ function parseLocation() {
 
 function findComponentByPath(
   path: string,
-  routes: {
-    path: string;
-    component: {
-      render: () => Element;
-    };
-  }[]
 ) {
   return (
-    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) ||
-    undefined
+    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm')))
+    || undefined
   );
 }
 
 const router = () => {
   const path = parseLocation();
-  const { component = RequestErrorPageComponent } =
-    findComponentByPath(path, routes) || {};
+  const { component = RequestErrorPageComponent } = findComponentByPath(path) || {};
   component.render();
   const tooltip = new Tooltip();
   tooltip.attach(document.body);

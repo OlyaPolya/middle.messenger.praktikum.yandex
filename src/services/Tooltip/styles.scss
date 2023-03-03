@@ -1,18 +1,17 @@
-@import '../../style.scss';
+@import "../../style";
 
 .tooltip {
   display: none;
   padding: 5px;
   max-width: 280px;
   border-radius: 8px;
-  box-shadow: 0px 0px 6px $grey-color-background-message;
+  box-shadow: 0 0 6px $grey-color-background-message;
   background-color: $white-color;
   font-family: $font;
   font-size: 12px;
 
-}
-
-.tooltip_active {
-  position: absolute;
-  display: block;
+  &_active {
+    position: absolute;
+    display: block;
+  }
 }
