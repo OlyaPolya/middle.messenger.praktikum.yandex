@@ -1,14 +1,12 @@
-type ButtonProp = {
-  [key: string]: {
-    textContent?: string;
-    attr?: {
-      class?: string;
-      type?: string;
-    };
-    events?: {
-      click: () => void;
-    };
-  };
-};
+// type ButtonProp = {
+//   textContent?: string;
+//   attr?: {
+//     class?: string;
+//     type?: string;
+//   };
+//   events?: {
+//     click: (e: Event) => void;
+//   };
+// };
 
-export default ButtonProp;
+// export default ButtonProp;

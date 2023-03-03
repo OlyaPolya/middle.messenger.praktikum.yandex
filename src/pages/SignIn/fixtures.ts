@@ -1,7 +1,6 @@
-import { Button, Input as InputType } from './types';
 import Input from '../../components/Input/Input';
 
-export const buttonsFixture: Button = {
+export const buttonsFixture = {
   signIn: {
     textContent: 'Войти',
     attr: {

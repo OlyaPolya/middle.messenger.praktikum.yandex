@@ -1,11 +1,16 @@
 import Wrap from '../../components/Input/Wrap';
 import Button from '../../components/Button/Button';
 
-type SignInProp = {
+type SignUpProp = {
+  email: Wrap;
   login: Wrap;
+  firstName: Wrap;
+  secondName: Wrap;
+  phone: Wrap;
   password: Wrap;
-  signIn: Button;
-  signUp: Button;
+  repeatPassword: Wrap;
+  signupButton: Button;
+  loginButton: Button;
   attr: {
     class: string;
   };
@@ -16,4 +21,4 @@ type SignInProp = {
   };
 };
 
-export default SignInProp;
+export default SignUpProp;

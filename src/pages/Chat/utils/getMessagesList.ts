@@ -1,5 +1,6 @@
 import receiveDate from '../../../utils/receiveDate';
-import { DialogList, Message } from '../types';
+import { Message } from '../Dialog/Feed/types';
+import { DialogList } from '../List/types';
 
 const CURRENT_USER_TEMP_ID = '86a0caef-41ec-49ac-814b-b27da2cea267';
 

@@ -1,14 +1,15 @@
-export interface IButton {
-  button: string;
-  classes: string;
-  value: string;
-}
+import Inputs from './inputs/Inputs';
+import Buttons from './buttons/Buttons';
 
-export interface IField {
-  inputName: string;
-  fieldClasses: string;
-  fieldNameValue: string;
-  inputClasses: string;
-  userData: string;
-  type: string;
-}
+export type ProfileProp = {
+  inputs?: Inputs;
+  buttons?: Buttons;
+  attr?: {
+    class: string;
+  };
+  events?: {
+    focus: (e: Event) => void;
+    blur: (e: Event) => void;
+    click: (e: Event) => void;
+  };
+};

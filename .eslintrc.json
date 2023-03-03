@@ -21,6 +21,7 @@
     "no-underscore-dangle": "off",
     "class-methods-use-this": "off",
     "no-param-reassign": "off",
-    "@typescript-eslint/default-param-last": "off"
+    "@typescript-eslint/default-param-last": "off",
+    "@typescript-eslint/no-use-before-define": "off"
   }
 }

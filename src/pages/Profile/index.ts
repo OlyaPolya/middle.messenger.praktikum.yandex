@@ -1,14 +1,9 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import './style.scss';
 import { ProfileButtons, SaveButton } from './buttons/index';
 import { ProfileInputs, PasswordInputs } from './inputs/index';
 import Profile from './Profile';
 import isValidField from '../../utils/validate/isValidField';
 import validateForm from '../../utils/validate/validateForm';
-
-type HTMLElementEvent<T extends HTMLElement> = Event & {
-  target: T;
-};
 
 const ProfilePage = new Profile('div', {
   inputs: ProfileInputs,
@@ -23,9 +18,9 @@ const ProfilePage = new Profile('div', {
     blur: (e: Event) => {
       isValidField(e.target as HTMLInputElement);
     },
-    click: (e: HTMLElementEvent<HTMLButtonElement>) => {
+    click: (e: Event) => {
       if (e.target) {
-        handleClick(e.target);
+        handleClick(e.target as HTMLButtonElement);
       }
       e.preventDefault();
       e.stopPropagation();

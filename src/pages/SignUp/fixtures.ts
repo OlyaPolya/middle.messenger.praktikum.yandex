@@ -1,4 +1,3 @@
-import { IButton, IInput } from '../SignIn/types';
 import Input from '../../components/Input/Input';
 
 export const buttonFixture = {

@@ -1,4 +1,14 @@
-export type ChatsList = Chat[];
+import ChatDialog from './Dialog/Dialog';
+import UsersList from './List/List';
+
+export type ChatProp = {
+  usersList: UsersList,
+  dialog: ChatDialog,
+  attr: {
+    class: string;
+  },
+};
+
 type Chat = {
   id: number;
   title: string;
@@ -17,50 +27,4 @@ type Chat = {
     content: string;
   };
 };
-
-export type DialogList = Dialog[];
-
-type Dialog = {
-  timestamp: string;
-  sender: {
-    id: string;
-    client_id?: string;
-    avatar?: string;
-    name: string;
-    phone?: string;
-    email?: string;
-  };
-  receiver?: {
-    id: string;
-    client_id: string;
-    avatar: string;
-    name: string;
-    phone: string;
-    email: string;
-  };
-  message: {
-    id: string;
-    client_id: string;
-    type: string;
-    text: string;
-    media: string;
-    thumbnail: string;
-    file_name: string;
-  };
-};
-
-export type Message = {
-  recipientOrSender: string;
-  message: string;
-  isDelivered: string;
-  messageTime: string;
-};
-
-export type User = {
-  userImage: string | null;
-  userName: string;
-  messageDate: string;
-  sender: string | null;
-  message: string;
-  newMessages: string | null;
-};
+export type ChatsList = Chat[];

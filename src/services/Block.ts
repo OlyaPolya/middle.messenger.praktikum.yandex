@@ -1,9 +1,10 @@
-/* eslint-disable class-methods-use-this */
 import { v4 as makeUUID } from 'uuid';
 import Handlebars from 'handlebars';
 import EventBus from './EventBus';
 
-type Props<P extends Record<string, any> = any> = { events? : Record<string, () => void> } & P;
+type Props<P extends Record<string, any> = any> = {
+  events?: Record<string, (e: Event) => void>;
+} & P;
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
@@ -72,7 +73,8 @@ class Block<P extends Record<string, any> = any> {
 
   componentDidMount() {}
 
-  /* вызываем ее снаружи после того, как добавили блок на страницу, чтобы опредлить появился блок на странице или нет */
+  /* вызываем ее снаружи после того, как добавили блок на страницу,
+  чтобы опредлить появился блок на странице или нет */
 
   dispatchComponentDidMount() {
     this.eventBus.emit(Block.EVENTS.FLOW_CDM);
@@ -136,7 +138,7 @@ class Block<P extends Record<string, any> = any> {
     return this.element;
   }
 
-  private _makePropsProxy(props: P) {
+  private _makePropsProxy(props: any) {
     const self = this;
 
     return new Proxy(props, {
@@ -170,7 +172,7 @@ class Block<P extends Record<string, any> = any> {
     }
   }
 
-  private addEvents() {
+  protected addEvents() {
     const { events = {} } = this.props;
 
     Object.keys(events).forEach((eventName) => {
@@ -220,7 +222,8 @@ class Block<P extends Record<string, any> = any> {
     return { children, props: props as Props<P> };
   }
 
-  // чтобы  работали events, переданные в компоненты . Мы создаем заглушку, которая будет потом заменяться элементом с событиями
+  /* чтобы  работали events, переданные в компоненты . Мы создаем заглушку,
+  которая будет потом заменяться элементом с событиями */
   compile(template: string, props?: Record<string, any> | undefined) {
     if (typeof props === 'undefined') {
       props = this.props;
@@ -243,7 +246,7 @@ class Block<P extends Record<string, any> = any> {
         stub.replaceWith(child.getContent() as HTMLElement);
       }
     });
-    return fragment.content;
+    return (fragment as HTMLMetaElement).content;
   }
 }
 
