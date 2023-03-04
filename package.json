@@ -9,7 +9,7 @@
     "dev": "parcel src/index.html --no-source-maps --open --port 4000",
     "build": "parcel build src/index.html --no-source-maps --dist-dir ./dist",
     "lint": "eslint ./src",
-    "start": "node src/server.mjs",
+    "start": "npm run build && node src/server.mjs",
     "stylelint": "stylelint \"**/*.scss\""
   },
   "repository": {
