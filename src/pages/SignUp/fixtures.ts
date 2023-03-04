@@ -1,4 +1,5 @@
 import Input from '../../components/Input/Input';
+import isValidField from '../../utils/validate/isValidField';
 
 export const buttonFixture = {
   signup: {
@@ -99,7 +100,17 @@ export const labelFixture = {
   repeatPassword: {
     spanClass: 'label-input__subtitle',
     value: 'Пароль (еще раз)',
-    input: new Input('input', inputsFixture.repeatPassword),
+    input: new Input('input', {
+      ...inputsFixture.repeatPassword,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signup-form__label-input label_red',
     },
@@ -107,7 +118,17 @@ export const labelFixture = {
   password: {
     spanClass: 'label-input__subtitle',
     value: 'Пароль',
-    input: new Input('input', inputsFixture.password),
+    input: new Input('input', {
+      ...inputsFixture.password,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signup-form__label-input',
     },
@@ -116,7 +137,17 @@ export const labelFixture = {
   phone: {
     spanClass: 'label-input__subtitle',
     value: 'Телефон',
-    input: new Input('input', inputsFixture.phone),
+    input: new Input('input', {
+      ...inputsFixture.phone,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signup-form__label-input',
     },
@@ -125,7 +156,17 @@ export const labelFixture = {
   secondName: {
     spanClass: 'label-input__subtitle',
     value: 'Фамилия',
-    input: new Input('input', inputsFixture.secondName),
+    input: new Input('input', {
+      ...inputsFixture.secondName,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signup-form__label-input',
     },
@@ -134,7 +175,17 @@ export const labelFixture = {
   firstName: {
     spanClass: 'label-input__subtitle',
     value: 'Имя',
-    input: new Input('input', inputsFixture.firstName),
+    input: new Input('input', {
+      ...inputsFixture.firstName,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signup-form__label-input',
     },
@@ -143,7 +194,17 @@ export const labelFixture = {
   email: {
     spanClass: 'label-input__subtitle',
     value: 'Почта',
-    input: new Input('input', inputsFixture.email),
+    input: new Input('input', {
+      ...inputsFixture.email,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signup-form__label-input',
     },
@@ -151,7 +212,17 @@ export const labelFixture = {
   login: {
     spanClass: 'label-input__subtitle',
     value: 'Логин',
-    input: new Input('input', inputsFixture.login),
+    input: new Input('input', {
+      ...inputsFixture.login,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signup-form__label-input',
     },

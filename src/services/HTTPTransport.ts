@@ -14,6 +14,11 @@ type Options = {
 
 type OptionsWithoutMethod = Omit<Options, 'method'>;
 
+type HTTPMethod = (
+  url: string,
+  options?: OptionsWithoutMethod
+) => Promise<unknown>;
+
 function queryStringify(data: any) {
   if (typeof data !== 'object') {
     throw new Error('Data must be object');
@@ -28,25 +33,19 @@ function queryStringify(data: any) {
 }
 
 class HTTPTransport {
-  get = (
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.GET });
+  get: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.GET });
 
-  post = (
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.POST });
+  post: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST });
 
-  put = (
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.PUT });
+  put: HTTPMethod = (
+    url,
+    options = {}
+  ) => this.request(url, { ...options, method: METHODS.PUT });
 
-  delete = (
-    url: string,
-    options: OptionsWithoutMethod = {}
-  ): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.DELETE });
+  delete: HTTPMethod = (
+    url,
+    options = {}
+  ) => this.request(url, { ...options, method: METHODS.DELETE });
 
   request = (url: string, options: Options): Promise<XMLHttpRequest> => {
     const { headers = {}, method, data } = options;

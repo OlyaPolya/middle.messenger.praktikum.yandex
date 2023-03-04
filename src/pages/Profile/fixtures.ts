@@ -1,4 +1,5 @@
 import Input from '../../components/Input/Input';
+import isValidField from '../../utils/validate/isValidField';
 
 export const buttonsFixture = {
   changeData: {
@@ -137,7 +138,17 @@ export const labelFixture = {
   phone: {
     spanClass: 'data__field-title',
     value: 'Телефон',
-    input: new Input('input', inputsFixture.phone),
+    input: new Input('input', {
+      ...inputsFixture.phone,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },
@@ -145,7 +156,17 @@ export const labelFixture = {
   displayName: {
     spanClass: 'data__field-title',
     value: 'Имя в чате',
-    input: new Input('input', inputsFixture.displayName),
+    input: new Input('input', {
+      ...inputsFixture.displayName,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },
@@ -153,7 +174,17 @@ export const labelFixture = {
   secondName: {
     spanClass: 'data__field-title',
     value: 'Фамилия',
-    input: new Input('input', inputsFixture.secondName),
+    input: new Input('input', {
+      ...inputsFixture.secondName,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },
@@ -161,7 +192,17 @@ export const labelFixture = {
   firstName: {
     spanClass: 'data__field-title',
     value: 'Имя',
-    input: new Input('input', inputsFixture.firstName),
+    input: new Input('input', {
+      ...inputsFixture.firstName,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },
@@ -169,7 +210,17 @@ export const labelFixture = {
   email: {
     spanClass: 'data__field-title',
     value: 'Почта',
-    input: new Input('input', inputsFixture.email),
+    input: new Input('input', {
+      ...inputsFixture.email,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },
@@ -177,16 +228,35 @@ export const labelFixture = {
   login: {
     spanClass: 'data__field-title',
     value: 'Логин',
-    input: new Input('input', inputsFixture.login),
+    input: new Input('input', {
+      ...inputsFixture.login,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
-
     },
   },
   repeatPassword: {
     spanClass: 'data__field-title',
     value: 'Повторите новый пароль',
-    input: new Input('input', inputsFixture.repeatPassword),
+    input: new Input('input', {
+      ...inputsFixture.repeatPassword,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },
@@ -194,7 +264,17 @@ export const labelFixture = {
   newPassword: {
     spanClass: 'data__field-title',
     value: 'Новый пароль',
-    input: new Input('input', inputsFixture.newPassword),
+    input: new Input('input', {
+      ...inputsFixture.newPassword,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },
@@ -202,7 +282,17 @@ export const labelFixture = {
   oldPassword: {
     spanClass: 'data__field-title',
     value: 'Старый пароль',
-    input: new Input('input', inputsFixture.oldPassword),
+    input: new Input('input', {
+      ...inputsFixture.oldPassword,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'data__field',
     },

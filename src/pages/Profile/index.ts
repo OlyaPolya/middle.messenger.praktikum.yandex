@@ -2,7 +2,6 @@ import './style.scss';
 import { ProfileButtons, SaveButton } from './buttons/index';
 import { ProfileInputs, PasswordInputs } from './inputs/index';
 import Profile from './Profile';
-import isValidField from '../../utils/validate/isValidField';
 import validateForm from '../../utils/validate/validateForm';
 
 const ProfilePage = new Profile('div', {
@@ -12,18 +11,15 @@ const ProfilePage = new Profile('div', {
     class: 'user-page',
   },
   events: {
-    focus: (e: Event) => {
-      isValidField(e.target as HTMLInputElement);
-    },
-    blur: (e: Event) => {
-      isValidField(e.target as HTMLInputElement);
-    },
     click: (e: Event) => {
-      if (e.target) {
-        handleClick(e.target as HTMLButtonElement);
-      }
       e.preventDefault();
       e.stopPropagation();
+      if (e.target) {
+        const element = e.target as HTMLElement;
+        if (element.tagName === 'BUTTON') {
+          handleClick(e.target as HTMLButtonElement);
+        }
+      }
     },
   },
 });

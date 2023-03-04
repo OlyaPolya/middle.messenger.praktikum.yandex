@@ -1,4 +1,5 @@
 import Input from '../../components/Input/Input';
+import isValidField from '../../utils/validate/isValidField';
 
 export const buttonsFixture = {
   signIn: {
@@ -39,7 +40,17 @@ export const labelFixture = {
   login: {
     spanClass: 'label-input__subtitle',
     value: 'Логин',
-    input: new Input('input', inputsFixture.login),
+    input: new Input('input', {
+      ...inputsFixture.login,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signin-form__label-input',
     },
@@ -47,7 +58,17 @@ export const labelFixture = {
   password: {
     spanClass: 'label-input__subtitle',
     value: 'Пароль',
-    input: new Input('input', inputsFixture.password),
+    input: new Input('input', {
+      ...inputsFixture.password,
+      events: {
+        focus: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+        blur: (e: Event) => {
+          isValidField(e.target as HTMLInputElement);
+        },
+      },
+    }),
     attr: {
       class: 'label signin-form__label-input',
     },
