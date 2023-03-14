@@ -1,64 +1,38 @@
 import './style.scss';
-import { createSignInPage } from './pages/SignInPage/index';
-import { createSignUpPage } from './pages/SignUpPage/index';
-import { usersSenders } from './pages/ChatPage/APITamplate/ChatsListUsers';
-import { createChatPage } from './pages/ChatPage/index';
-import { userMessages } from './pages/ChatPage/APITamplate/FeedMessage';
-import { createProfilePage } from './pages/ProfilePage/index';
-import {
-  buttonsProfile,
-  fieldsProfile,
-  fieldsPasswordProfile,
-  buttonsSaveProfile,
-} from './pages/ProfilePage/fixtures';
-import { createErrorPage } from './pages/ErrorPage/index';
+import { ServerError, RequestError } from './pages/Error/index';
+import SignInPage from './pages/SignIn/index';
+import SignUpPage from './pages/SignUp/index';
+import renderDOM from './utils/renderDom';
+import ChatPage from './pages/Chat/index';
+import ProfilePage from './pages/Profile/index';
+import Tooltip from './services/Tooltip/Tooltip';
 
 const SignInPageComponent = {
-  render: () => {
-    return createSignInPage();
-  },
+  render: () => renderDOM('.main', SignInPage),
 };
 
 const SignUpPageComponent = {
-  render: () => {
-    return createSignUpPage();
-  },
+  render: () => renderDOM('.main', SignUpPage),
 };
 
 const ChatPageComponent = {
-  render: () => {
-    return createChatPage(usersSenders, userMessages);
-  },
+  render: () => renderDOM('.main', ChatPage),
 };
 
 const ProfilePageComponent = {
   render: () => {
-    return createProfilePage(fieldsProfile, buttonsProfile, 'readonly');
+    renderDOM('.main', ProfilePage);
+    // eslint-disable-next-line no-console
+    console.log('Работают кнопки "Изменить данные" и "Изменить пароль"');
   },
 };
 
-const ChangePasswordComponent = {
-  render: () => {
-    return createProfilePage(fieldsPasswordProfile, buttonsSaveProfile);
-  },
+const RequestErrorPageComponent = {
+  render: () => renderDOM('.main', RequestError),
 };
 
-const ChangeProfileComponent = {
-  render: () => {
-    return createProfilePage(fieldsProfile, buttonsSaveProfile);
-  },
-};
-
-const NotFoundPageComponent = {
-  render: () => {
-    return createErrorPage('404', 'Не туда попали');
-  },
-};
-
-const ErrorPageComponent = {
-  render: () => {
-    return createErrorPage('500', 'Мы уже фиксим');
-  },
+const ServerErrorPageComponent = {
+  render: () => renderDOM('.main', ServerError),
 };
 
 const routes = [
@@ -66,39 +40,29 @@ const routes = [
   { path: '/signup', component: SignUpPageComponent },
   { path: '/chat', component: ChatPageComponent },
   { path: '/profile', component: ProfilePageComponent },
-  { path: '/change-password', component: ChangePasswordComponent },
-  { path: '/change-profile', component: ChangeProfileComponent },
-  { path: '/404', component: NotFoundPageComponent },
-  { path: '/500', component: ErrorPageComponent },
+  { path: '/404', component: RequestErrorPageComponent },
+  { path: '/500', component: ServerErrorPageComponent },
 ];
 
 function parseLocation() {
-  return location.hash.slice(1).toLowerCase() || '/';
+  return window.location.hash.slice(1).toLowerCase() || '/';
 }
 
 function findComponentByPath(
   path: string,
-  routes: {
-    path: string;
-    component: {
-      render: () => string;
-    };
-  }[]
 ) {
   return (
-    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm'))) ||
-    undefined
+    routes.find((route) => route.path.match(new RegExp(`^\\${path}$`, 'gm')))
+    || undefined
   );
 }
 
 const router = () => {
   const path = parseLocation();
-  const { component = ErrorPageComponent } =
-    findComponentByPath(path, routes) || {};
-  const section = document.querySelector('.main');
-  if (section) {
-    section.innerHTML = component.render();
-  }
+  const { component = RequestErrorPageComponent } = findComponentByPath(path) || {};
+  component.render();
+  const tooltip = new Tooltip();
+  tooltip.attach(document.body);
 };
 
 window.addEventListener('hashchange', router);

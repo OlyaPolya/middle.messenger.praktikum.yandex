@@ -1,12 +1,12 @@
-@import '../../style.scss';
+@import "../../style";
 
 .label {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
   height: 36px;
   width: 100%;
-  position: relative;
 
   &-input__subtitle {
     font-family: $font;
@@ -14,22 +14,6 @@
     font-size: 9px;
     line-height: 9px;
     color: $grey-color;
-    
-  }
-
-  &_red {
-    .input {
-      color: $red-color-input;
-    }
-    
-    &::after { 
-      position: absolute;
-      left: 0;
-      bottom: -15px;
-      content: "Пароли не совпадают";
-      color: $red-color-input;
-      font-size: 8px;
-    }
   }
 }
 
@@ -40,11 +24,42 @@
   font-size: 13px;
   line-height: 13px;
   font-weight: 600;
-  color: #1E1E1E;
+  color: $black-color;
 }
 
-.signin-form__password-input,
-.signup-form__password-input {
-  font-size: 16px;
-  letter-spacing: 1px;
+.signin-form {
+  &__password-input {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.signup-form {
+  &__password-input {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.tooltip-error {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  color: $red-color-input;
+  font-size: 8px;
+
+  &__show {
+    display: block;
+  }
+}
+
+.error {
+  color: $red-color-input;
+}
+
+.data {
+  &__field__body:disabled {
+    background-color: inherit;
+  }
 }

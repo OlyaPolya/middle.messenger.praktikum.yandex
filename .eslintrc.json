@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["airbnb-base", "airbnb-typescript/base"],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "linebreak-style": ["error", "windows"],
+    "@typescript-eslint/no-unused-vars": 2,
+    "max-len": [1, 100],
+    "comma-dangle": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "no-param-reassign": "off",
+    "@typescript-eslint/default-param-last": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "max-params": "off",
+    "no-restricted-syntax": "off"
+  }
+}
