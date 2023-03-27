@@ -1,7 +1,7 @@
 import Inputs from './inputs/Inputs';
 import Buttons from './buttons/Buttons';
 
-export type ProfileProp = {
+export type SettingsProp = {
   inputs?: Inputs;
   buttons?: Buttons;
   attr?: {

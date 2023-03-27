@@ -1,10 +1,10 @@
 import Block from '../../services/Block';
 import template from './template';
 
-class Chat extends Block {
+class Messenger extends Block {
   render(): string {
     return this.compile(template);
   }
 }
 
-export default Chat;
+export default Messenger;

@@ -43,13 +43,10 @@ class Tooltip {
   }
 
   onShow = (event: Event) => {
-    // Элемент, на который пользователь навёл мышкой
     const sourceEl = event.target as HTMLElement;
     if (sourceEl) {
-      // HTML тултипа задаём из data-аттрибута
       this.el.innerHTML = sourceEl.getAttribute('data-tooltip') ?? '';
 
-      // Добавляем класс _active, чтобы отобразить тултип
       this.el.classList.add(`${this.name}_active`);
 
       const sourceElRect = sourceEl.getBoundingClientRect();
@@ -58,7 +55,6 @@ class Tooltip {
       let top = sourceElRect.bottom + this.indent;
       const { left } = sourceElRect;
 
-      // Если тултип не влезает по высоте, то поднимаем его над элементом
       if (top + elRect.height > document.documentElement.clientHeight) {
         top = sourceElRect.top - elRect.height - this.indent;
       }

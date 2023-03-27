@@ -1,9 +1,9 @@
 import ChatDialog from './Dialog/index';
 import UsersList from './List/index';
-import Chat from './Chat';
+import Messenger from './Messenger';
 import './style.scss';
 
-const ChatPage = new Chat('div', {
+const MessengerPage = new Messenger('div', {
   usersList: UsersList,
   dialog: ChatDialog,
   attr: {
@@ -11,4 +11,4 @@ const ChatPage = new Chat('div', {
   },
 });
 
-export default ChatPage;
+export default MessengerPage;

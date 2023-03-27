@@ -98,7 +98,6 @@ class Block<P extends Record<string, any> = any> {
     return true;
   }
 
-  /* изменить пропсы */
   setProps = (newProps: P) => {
     if (!newProps) {
       return;
@@ -129,7 +128,6 @@ class Block<P extends Record<string, any> = any> {
     this.addAttribute();
   }
 
-  /* в каждом компоненте  мы переопределяем этот метод и возвращаем строку через handlebars */
   render() {
     return '';
   }
@@ -222,8 +220,6 @@ class Block<P extends Record<string, any> = any> {
     return { children, props: props as Props<P> };
   }
 
-  /* чтобы  работали events, переданные в компоненты . Мы создаем заглушку,
-  которая будет потом заменяться элементом с событиями */
   compile(template: string, props?: Record<string, any> | undefined) {
     if (typeof props === 'undefined') {
       props = this.props;

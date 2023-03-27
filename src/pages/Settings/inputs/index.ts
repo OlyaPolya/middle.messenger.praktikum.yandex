@@ -12,7 +12,7 @@ const oldPassword = new Wrap('div', labelFixture.oldPassword);
 const newPassword = new Wrap('div', labelFixture.newPassword);
 const repeatPassword = new Wrap('div', labelFixture.repeatPassword);
 
-export const ProfileInputs = new Inputs('div', {
+export const SettingsInputs = new Inputs('div', {
   email,
   login,
   firstName,

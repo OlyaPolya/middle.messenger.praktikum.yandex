@@ -1,11 +1,11 @@
 import Block from '../../services/Block';
 import template from './template';
-import { ProfileProp } from './types';
+import { SettingsProp } from './types';
 
-class Profile extends Block<ProfileProp> {
+class Settings extends Block<SettingsProp> {
   render(): string {
     return this.compile(template);
   }
 }
 
-export default Profile;
+export default Settings;

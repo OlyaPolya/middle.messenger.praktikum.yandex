@@ -1,12 +1,12 @@
 import './style.scss';
-import { ProfileButtons, SaveButton } from './buttons/index';
-import { ProfileInputs, PasswordInputs } from './inputs/index';
-import Profile from './Profile';
+import { SettingsButtons, SaveButton } from './buttons/index';
+import { SettingsInputs, PasswordInputs } from './inputs/index';
+import Settings from './Settings';
 import validateForm from '../../utils/validate/validateForm';
 
-const ProfilePage = new Profile('div', {
-  inputs: ProfileInputs,
-  buttons: ProfileButtons,
+const SettingsPage = new Settings('div', {
+  inputs: SettingsInputs,
+  buttons: SettingsButtons,
   attr: {
     class: 'user-page',
   },
@@ -24,10 +24,10 @@ const ProfilePage = new Profile('div', {
   },
 });
 
-export default ProfilePage;
+export default SettingsPage;
 
-function displayProfileChangeForm() {
-  ProfilePage.setProps({
+function displaySettingsChangeForm() {
+  SettingsPage.setProps({
     buttons: SaveButton,
   });
   const allInputs = document.querySelectorAll('.data__field__body');
@@ -38,10 +38,10 @@ function displayProfileChangeForm() {
   }
 }
 
-function displayProfileForm() {
-  ProfilePage.setProps({
-    inputs: ProfileInputs,
-    buttons: ProfileButtons,
+function displaySettingsForm() {
+  SettingsPage.setProps({
+    inputs: SettingsInputs,
+    buttons: SettingsButtons,
   });
   const allInputs = document.querySelectorAll('.data__field__body');
   if (allInputs) {
@@ -52,7 +52,7 @@ function displayProfileForm() {
 }
 
 function displayPasswordChangeForm() {
-  ProfilePage.setProps({
+  SettingsPage.setProps({
     inputs: PasswordInputs,
     buttons: SaveButton,
   });
@@ -60,11 +60,11 @@ function displayPasswordChangeForm() {
 
 function handleClick(button: HTMLButtonElement) {
   if (button.classList.contains('button__changeData')) {
-    displayProfileChangeForm();
+    displaySettingsChangeForm();
   }
   if (button.classList.contains('button__save')) {
     if (validateForm()) {
-      displayProfileForm();
+      displaySettingsForm();
     }
   }
   if (button.classList.contains('button__changePassword')) {

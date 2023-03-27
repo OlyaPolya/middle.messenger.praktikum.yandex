@@ -7,7 +7,7 @@ const changePassword = new Button('button', buttonsFixture.changePassword);
 const signOut = new Button('button', buttonsFixture.signOut);
 const save = new Button('button', buttonsFixture.save);
 
-export const ProfileButtons = new Buttons('div', {
+export const SettingsButtons = new Buttons('div', {
   changeData,
   changePassword,
   signOut,
